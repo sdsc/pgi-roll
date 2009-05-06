@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+  <description>
+  PGI Compilers
+  </description>
+
+  <copyright>
+  Copyright (c) 2000 - 2008 The Regents of the University of California.
+  All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
+  </copyright>
+
+  <changelog>
+  $Log$
+  Revision 1.1  2009/05/06 23:39:01  mahidhar
+  *** empty log message ***
+
+  </changelog>
+
+  <package>pgi</package>
+
+  <post>
+if test -f /opt/pgi; then
+cd /opt/pgi
+rm install-rocks-post
+rm postinstall-rocks-post
+fi
+  </post>
+
+</kickstart>
