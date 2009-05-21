@@ -55,8 +55,9 @@
 # @Copyright@
 #
 # $Log$
-# Revision 1.2  2009/05/13 21:18:27  jhayes
-# Add missing files + fix a Makefile bug.
+# Revision 1.3  2009/05/21 00:49:57  mahidhar
+# Removed PGI rpm files
+# Updated PGI xml, Makefile, version.mk
 #
 # Revision 1.1  2009/05/06 23:39:01  mahidhar
 # *** empty log message ***
@@ -100,7 +101,7 @@ install::
 	 cd $(ROOT)/$(PKGROOT)/TMP; \
 	 tar zxvf $${tardir}/$(NAME)linux-$(VERSION).tar.gz)
 	( \
-	  cd $(ROOT)/$(PKGROOT)/TMP; \
+	  cd $(ROOT)$(PKGROOT)/TMP; \
 	  ./install-rocks; \
           mv install-rocks-post ../; \
           mv postinstall-rocks-post ../; \

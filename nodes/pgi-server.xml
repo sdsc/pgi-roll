@@ -13,6 +13,10 @@
 
   <changelog>
   $Log$
+  Revision 1.2  2009/05/21 00:49:57  mahidhar
+  Removed PGI rpm files
+  Updated PGI xml, Makefile, version.mk
+
   Revision 1.1  2009/05/06 23:39:01  mahidhar
   *** empty log message ***
 
@@ -21,11 +25,23 @@
   <package>pgi</package>
 
   <post>
-if test -f /opt/pgi; then
+if test -d /opt/pgi; then
 cd /opt/pgi
-rm install-rocks-post
-rm postinstall-rocks-post
+./install-rocks-post
+/bin/rm -f /opt/pgi/install-rocks-post
+/bin/rm -f /opt/pgi/postinstall-rocks-post
 fi
-  </post>
+<file name="/etc/profile.d/pgi-path.csh" perms="0644"> 
+setenv PGI /opt/pgi
+set path=(/opt/pgi/linux86-64/8.0/bin $path)
+setenv MANPATH "$MANPATH":/opt/pgi/linux86-64/8.0/man
+</file>
+
+<file name="/etc/profile.d/pgi-path.sh" perms="0644">  
+export PATH=/opt/pgi/linux86-64/8.0/bin:$PATH
+export MANPATH=$MANPATH:/opt/pgi/linux86-64/8.0/man
+</file>
+
+</post>
 
 </kickstart>
