@@ -3,7 +3,7 @@
 <kickstart>
 
   <description>
-  PGI Compilers
+   PGI Compilers
   </description>
 
   <copyright>
@@ -13,6 +13,12 @@
 
   <changelog>
   $Log$
+  Revision 1.1  2009/05/21 18:35:20  mahidhar
+  Changed PGI roll to common version.
+  Removed pgi-client.xml, pgi-server.xml files.
+  Added pgi-common.xml file.
+  Modified pgi.xml file in graphs/default directory.
+
   Revision 1.2  2009/05/21 00:49:57  mahidhar
   Removed PGI rpm files
   Updated PGI xml, Makefile, version.mk
@@ -31,17 +37,17 @@ cd /opt/pgi
 /bin/rm -f /opt/pgi/install-rocks-post
 /bin/rm -f /opt/pgi/postinstall-rocks-post
 fi
-<file name="/etc/profile.d/pgi-path.csh" perms="0644"> 
+<file name="/etc/profile.d/pgi-path.csh" perms="0644">   
 setenv PGI /opt/pgi
 set path=(/opt/pgi/linux86-64/8.0/bin $path)
 setenv MANPATH "$MANPATH":/opt/pgi/linux86-64/8.0/man
 </file>
 
-<file name="/etc/profile.d/pgi-path.sh" perms="0644">  
+<file name="/etc/profile.d/pgi-path.sh" perms="0644">
 export PATH=/opt/pgi/linux86-64/8.0/bin:$PATH
 export MANPATH=$MANPATH:/opt/pgi/linux86-64/8.0/man
 </file>
 
-</post>
+  </post>
 
 </kickstart>

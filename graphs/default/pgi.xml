@@ -13,17 +13,19 @@
 
   <changelog>
   $Log$
+  Revision 1.2  2009/05/21 18:35:19  mahidhar
+  Changed PGI roll to common version.
+  Removed pgi-client.xml, pgi-server.xml files.
+  Added pgi-common.xml file.
+  Modified pgi.xml file in graphs/default directory.
+
   Revision 1.1  2009/05/06 23:39:01  mahidhar
   *** empty log message ***
 
   </changelog>
 
-  <edge from="server">
-    <to>pgi-server</to>
-  </edge>
-
-  <edge from="client">
-    <to>pgi-client</to>
+  <edge from="base">
+    <to>pgi-common</to>
   </edge>
 
 </graph>
