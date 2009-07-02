@@ -13,6 +13,11 @@
 
   <changelog>
   $Log$
+  Revision 1.2  2009/07/02 00:09:41  jpg
+
+
+  fixed error in
+
   Revision 1.1  2009/05/21 18:35:20  mahidhar
   Changed PGI roll to common version.
   Removed pgi-client.xml, pgi-server.xml files.
@@ -38,16 +43,20 @@ cd /opt/pgi
 /bin/rm -f /opt/pgi/postinstall-rocks-post
 fi
 <file name="/etc/profile.d/pgi-path.csh" perms="0644">   
-setenv PGI /opt/pgi
-set path=(/opt/pgi/linux86-64/8.0/bin $path)
-setenv MANPATH "$MANPATH":/opt/pgi/linux86-64/8.0/man
+module add pgi
 </file>
 
 <file name="/etc/profile.d/pgi-path.sh" perms="0644">
-export PATH=/opt/pgi/linux86-64/8.0/bin:$PATH
-export MANPATH=$MANPATH:/opt/pgi/linux86-64/8.0/man
+module add pgi
 </file>
-
-  </post>
+mkdir /opt/modulefiles/compilers/pgi
+chmod 0755 /opt/modulefiles/compilers/pgi
+ln -s /opt/modulefiles/compilers/compiler /opt/modulefiles/compilers/pgi/8.0
+<file name="/opt/modulefiles/compilers/pgi/.version.8.0">
+#%Module1.0
+set ModulesVersion "8.0"
+</file>
+ln -s /opt/modulefiles/compilers/pgi/.version.8.0 /opt/modulefiles/compilers/pgi/.version
+ </post>
 
 </kickstart>
