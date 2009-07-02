@@ -13,6 +13,10 @@
 
   <changelog>
   $Log$
+  Revision 1.3  2009/07/02 05:10:42  mahidhar
+  Changed PGI roll to allow for non-interactive make roll.
+  Removed src file; Will upload new one.
+
   Revision 1.2  2009/05/21 18:35:19  mahidhar
   Changed PGI roll to common version.
   Removed pgi-client.xml, pgi-server.xml files.
@@ -23,9 +27,10 @@
   *** empty log message ***
 
   </changelog>
-
   <edge from="base">
     <to>pgi-common</to>
   </edge>
-
+  <order head="envmodules">
+    <tail>pgi-common</tail>
+  </order>  
 </graph>

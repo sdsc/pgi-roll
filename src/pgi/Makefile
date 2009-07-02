@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log$
+# Revision 1.4  2009/07/02 05:10:43  mahidhar
+# Changed PGI roll to allow for non-interactive make roll.
+# Removed src file; Will upload new one.
+#
 # Revision 1.3  2009/05/21 00:49:57  mahidhar
 # Removed PGI rpm files
 # Updated PGI xml, Makefile, version.mk
@@ -102,7 +106,8 @@ install::
 	 tar zxvf $${tardir}/$(NAME)linux-$(VERSION).tar.gz)
 	( \
 	  cd $(ROOT)$(PKGROOT)/TMP; \
-	  ./install-rocks; \
+          echo $(ROOT)$(PKGROOT) > input.list; \
+	  ./install-rocks < input.list; \
           mv install-rocks-post ../; \
           mv postinstall-rocks-post ../; \
           cd ../; \
