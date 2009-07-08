@@ -13,6 +13,13 @@
 
   <changelog>
   $Log$
+  Revision 1.3  2009/07/08 23:24:42  jpg
+
+
+  default modules are pgi,openmpi_mx
+
+  Jerry
+
   Revision 1.2  2009/07/02 00:09:41  jpg
 
 
@@ -43,11 +50,13 @@ cd /opt/pgi
 /bin/rm -f /opt/pgi/postinstall-rocks-post
 fi
 <file name="/etc/profile.d/pgi-path.csh" perms="0644">   
-module add pgi
+module -s add pgi
+module -s add openmpi_mx
 </file>
 
 <file name="/etc/profile.d/pgi-path.sh" perms="0644">
-module add pgi
+module add pgi 2>/dev/null
+module add openmpi_mx 2>/dev/null
 </file>
 mkdir /opt/modulefiles/compilers/pgi
 chmod 0755 /opt/modulefiles/compilers/pgi
