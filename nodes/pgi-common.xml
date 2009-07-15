@@ -13,6 +13,13 @@
 
   <changelog>
   $Log$
+  Revision 1.5  2009/07/15 18:02:43  jpg
+
+
+  pgi man path now appended to  /etc/man.config
+
+  Jerry
+
   Revision 1.4  2009/07/15 06:36:11  phil
   Get rid of the post- rocks-post install. links are made when building rpm
 
@@ -63,6 +70,9 @@ ln -s /opt/modulefiles/compilers/compiler /opt/modulefiles/compilers/pgi/8.0
 set ModulesVersion "8.0"
 </file>
 ln -s /opt/modulefiles/compilers/pgi/.version.8.0 /opt/modulefiles/compilers/pgi/.version
+<file name="/etc/man.config" mode="append" >
+MANPATH /opt/pgi/linux86-64/8.0/man
+</file>
  </post>
 
 </kickstart>
