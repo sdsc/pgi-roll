@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log$
+# Revision 1.6  2009/08/22 02:39:11  mahidhar
+# Adding files for MPICHMX roll. Includes both Intel and PGI versions.
+#
 # Revision 1.5  2009/07/15 06:30:14  phil
 # Update so that building rpm doesn't erase installed version
 #
@@ -89,4 +92,4 @@ install::
 	cd $(NAME)-$(VERSION); ./install < ../responseFile;   \
 	umount $(PKGROOT) )
 clean::
-	rm -rf $(NAME)-$(VERSION)
+	
