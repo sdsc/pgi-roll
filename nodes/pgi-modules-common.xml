@@ -28,10 +28,12 @@ if test `grep -Fc "$line" /etc/profile.d/modules.sh` = 0; then
 fi
 
 # Add module files for the PGI compilers
+<!-- env vars in <file> tags don't work, so use fixed-path temps -->
 /bin/mkdir -m 0755 -p /opt/modulefiles/compilers/pgi
+/bin/mkdir -m 0755 -p /opt/modulefiles/.tmp
 export version=8.0
 
-<file name="/opt/modulefiles/compilers/pgi/$version" perms="0644">
+<file name="/opt/modulefiles/.tmp/pgi" perms="0644">
 #%Module1.0
 module-whatis "pgi Compiler"
 module-whatis "Version: VERSION"
@@ -66,13 +68,16 @@ foreach mod $noncompilers {
   module load $mod
 }
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/compilers/pgi/$version
+/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/pgi
+/bin/cp /opt/modulefiles/.tmp/pgi /opt/modulefiles/compilers/pgi/$version
 
-<file name="/opt/modulefiles/compilers/pgi/.version.$version" perms="0644">
+<file name="/opt/modulefiles/.tmp/pgi.version" perms="0644">
 #%Module1.0
 set ModulesVersion "VERSION"
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/compilers/pgi/.version.$version
+/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/pgi.version
+/bin/cp /opt/modulefiles/.tmp/pgi.version \
+        /opt/modulefiles/compilers/pgi/.version.$version
 
 /bin/ln -s /opt/modulefiles/compilers/pgi/.version.$version \
            /opt/modulefiles/compilers/pgi/.version
@@ -81,7 +86,7 @@ set ModulesVersion "VERSION"
 /bin/mkdir -m 0755 -p /opt/modulefiles/compilers/gcc
 export version=`gcc --version | head -1 | awk ' {print $3}'`
 
-<file name="/opt/modulefiles/compilers/gcc/$version" perms="0644">
+<file name="/opt/modulefiles/.tmp/gcc" perms="0644">
 #%Module1.0
 module-whatis "gcc Compiler"
 module-whatis "Version: VERSION"
@@ -114,13 +119,16 @@ foreach mod $noncompilers {
   module load $mod
 }
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/compilers/gcc/$version
+/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gcc
+/bin/cp /opt/modulefiles/.tmp/gcc /opt/modulefiles/compilers/gcc/$version
 
-<file name="/opt/modulefiles/compilers/gcc/.version.$version" perms="0644">
+<file name="/opt/modulefiles/.tmp/gcc.version" perms="0644">
 #%Module1.0
 set ModulesVersion "VERSION"
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/compilers/gcc/.version.$version
+/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gcc.version
+/bin/cp /opt/modulefiles/.tmp/gcc.version \
+        /opt/modulefiles/compilers/gcc/.version.$version
 
 /bin/ln -s /opt/modulefiles/compilers/gcc/.version.$version \
            /opt/modulefiles/compilers/gcc/.version
