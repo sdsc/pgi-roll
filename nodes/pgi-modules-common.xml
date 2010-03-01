@@ -35,38 +35,32 @@ export version=8.0
 
 <file name="/opt/modulefiles/.tmp/pgi" perms="0644">
 #%Module1.0
-module-whatis "pgi Compiler"
+module-whatis "PGI compilers"
 module-whatis "Version: VERSION"
-module-whatis "Description: pgi Compiler (C/C++/Fortran)"
-# Allow unload only from another (compiler) module's load
-if {[module-info mode remove] &amp;&amp; ! [module-info mode load]} {
-  puts stderr "Cannot unload compiler module"
-  puts stderr "Load a different compiler module instead"
-  exit 1
+module-whatis "Description: PGI compilers (C/C++/Fortran)"
+
+# Unload any compiler-dependent modules
+if {[module-info mode switch1] || [module-info mode switch3]} {
+  set commandWords [split [exec /bin/ps -p [pid] -o args=] " "]
+  set switchFrom [lindex [split [module-info name] "/"] 0]
+  set switchTo [lindex [split [lindex $commandWords end] "/"] 0]
+  set unloadApps [expr ! [string equal $switchTo $switchFrom]]
+} elseif {[module-info mode remove]} {
+  set unloadApps 1
+} else {
+  set unloadApps 0
 }
-# If loading, first unload potentially compiler-dependent modules, followed by
-# other compiler modules
-set compilers [list]
-set noncompilers [list]
-if { [info exists env(LOADEDMODULES)] &amp;&amp; ! [module-info mode remove] } {
-  foreach mod [split $env(LOADEDMODULES) ":"] {
-    if { ! [file exists "/opt/modulefiles/compilers/$mod"] } {
-      lappend noncompilers $mod
-    } elseif {$mod ne [module-info name]} {
-      lappend compilers $mod
-    }
+if {$unloadApps} {
+  foreach app [split [exec /bin/ls /opt/modulefiles/applications/.pgi]] {
+    module unload $app
   }
 }
-foreach mod [concat $noncompilers $compilers] {
-  module unload $mod
-}
+prepend-path MODULEPATH /opt/modulefiles/applications/.pgi
+
 # Compiler environment modifications
 prepend-path PATH "/opt/pgi/linux86-64/VERSION/bin"
 prepend-path LD_LIBRARY_PATH "/opt/pgi/linux86-64/VERSION/libso"
-# Reload non-compiler modules
-foreach mod $noncompilers {
-  module load $mod
-}
+
 </file>
 /usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/pgi
 /bin/cp /opt/modulefiles/.tmp/pgi /opt/modulefiles/compilers/pgi/$version
@@ -82,56 +76,49 @@ set ModulesVersion "VERSION"
 /bin/ln -s /opt/modulefiles/compilers/pgi/.version.$version \
            /opt/modulefiles/compilers/pgi/.version
 
-# Add module files for the pre-installed GCC compilers
-/bin/mkdir -m 0755 -p /opt/modulefiles/compilers/gcc
+# Add module files for the pre-installed gnu compilers
+/bin/mkdir -m 0755 -p /opt/modulefiles/compilers/gnu
 export version=`gcc --version | head -1 | awk ' {print $3}'`
 
-<file name="/opt/modulefiles/.tmp/gcc" perms="0644">
+<file name="/opt/modulefiles/.tmp/gnu" perms="0644">
 #%Module1.0
-module-whatis "gcc Compiler"
+module-whatis "GNU compilers"
 module-whatis "Version: VERSION"
-module-whatis "Description: gcc Compiler"
-# Allow unload only from another (compiler) module's load
-if {[module-info mode remove] &amp;&amp; ! [module-info mode load]} {
-  puts stderr "Cannot unload compiler module"
-  puts stderr "Load a different compiler module instead"
-  exit 1
+module-whatis "Description: GNU compilers"
+
+# Unload any compiler-dependent modules
+if {[module-info mode switch1] || [module-info mode switch3]} {
+  set commandWords [split [exec /bin/ps -p [pid] -o args=] " "]
+  set switchFrom [lindex [split [module-info name] "/"] 0]
+  set switchTo [lindex [split [lindex $commandWords end] "/"] 0]
+  set unloadApps [expr ! [string equal $switchTo $switchFrom]]
+} elseif {[module-info mode remove]} {
+  set unloadApps 1
+} else {
+  set unloadApps 0
 }
-# If loading, first unload potentially compiler-dependent modules, followed by
-# other compiler modules
-set compilers [list]
-set noncompilers [list]
-if { [info exists env(LOADEDMODULES)] &amp;&amp; ! [module-info mode remove] } {
-  foreach mod [split $env(LOADEDMODULES) ":"] {
-    if { ! [file exists "/opt/modulefiles/compilers/$mod"] } {
-      lappend noncompilers $mod
-    } elseif {$mod ne [module-info name]} {
-      lappend compilers $mod
-    }
+if {$unloadApps} {
+  foreach app [split [exec /bin/ls /opt/modulefiles/applications/.gnu]] {
+    module unload $app
   }
 }
-foreach mod [concat $noncompilers $compilers] {
-  module unload $mod
-}
-# Compiler environment modifications: none needed
-# Reload non-compiler modules
-foreach mod $noncompilers {
-  module load $mod
-}
-</file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gcc
-/bin/cp /opt/modulefiles/.tmp/gcc /opt/modulefiles/compilers/gcc/$version
+prepend-path MODULEPATH /opt/modulefiles/applications/.gnu
 
-<file name="/opt/modulefiles/.tmp/gcc.version" perms="0644">
+# Compiler environment modifications: none needed
+</file>
+/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gnu
+/bin/cp /opt/modulefiles/.tmp/gnu /opt/modulefiles/compilers/gnu/$version
+
+<file name="/opt/modulefiles/.tmp/gnu.version" perms="0644">
 #%Module1.0
 set ModulesVersion "VERSION"
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gcc.version
-/bin/cp /opt/modulefiles/.tmp/gcc.version \
-        /opt/modulefiles/compilers/gcc/.version.$version
+/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gnu.version
+/bin/cp /opt/modulefiles/.tmp/gnu.version \
+        /opt/modulefiles/compilers/gnu/.version.$version
 
-/bin/ln -s /opt/modulefiles/compilers/gcc/.version.$version \
-           /opt/modulefiles/compilers/gcc/.version
+/bin/ln -s /opt/modulefiles/compilers/gnu/.version.$version \
+           /opt/modulefiles/compilers/gnu/.version
 
 </post>
 
