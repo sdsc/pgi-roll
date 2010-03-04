@@ -51,11 +51,13 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
   set unloadApps 0
 }
 if {$unloadApps} {
-  foreach app [split [exec /bin/ls /opt/modulefiles/applications/.pgi]] {
-    module unload $app
+  foreach app [glob /opt/modulefiles/*/.pgi/*] {
+    module unload [lindex [split $app "/"] end]
   }
 }
-prepend-path MODULEPATH /opt/modulefiles/applications/.pgi
+foreach path [glob /opt/modulefiles/*/.pgi] {
+  prepend-path MODULEPATH $path
+}
 
 # Compiler environment modifications
 prepend-path PATH "/opt/pgi/linux86-64/VERSION/bin"
@@ -98,11 +100,13 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
   set unloadApps 0
 }
 if {$unloadApps} {
-  foreach app [split [exec /bin/ls /opt/modulefiles/applications/.gnu]] {
-    module unload $app
+  foreach app [glob /opt/modulefiles/*/.gnu/*] {
+    module unload [lindex [split $app "/"] end]
   }
 }
-prepend-path MODULEPATH /opt/modulefiles/applications/.gnu
+foreach path [glob /opt/modulefiles/*/.gnu] {
+  prepend-path MODULEPATH $path
+}
 
 # Compiler environment modifications: none needed
 </file>
