@@ -50,12 +50,15 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
 } else {
   set unloadApps 0
 }
-if {$unloadApps} {
-  foreach app [glob /opt/modulefiles/*/.pgi/*] {
-    module unload [lindex [split $app "/"] end]
+if {$unloadApps && [info exists env(LOADEDMODULES)]} {
+  foreach app [split $env(LOADEDMODULES) ":"] {
+    if {[llength [glob -nocomplain /opt/modulefiles/*/.pgi/$app]] > 0} {
+      puts stderr "Unloading compiler-dependent module $app"
+      module unload [lindex [split $app "/"] 0]
+    }
   }
 }
-foreach path [glob /opt/modulefiles/*/.pgi] {
+foreach path [glob -nocomplain /opt/modulefiles/*/.pgi] {
   prepend-path MODULEPATH $path
 }
 
@@ -99,12 +102,15 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
 } else {
   set unloadApps 0
 }
-if {$unloadApps} {
-  foreach app [glob /opt/modulefiles/*/.gnu/*] {
-    module unload [lindex [split $app "/"] end]
+if {$unloadApps && [info exists env(LOADEDMODULES)]} {
+  foreach app [split $env(LOADEDMODULES) ":"] {
+    if {[llength [glob -nocomplain /opt/modulefiles/*/.gnu/$app]] > 0} {
+      puts stderr "Unloading compiler-dependent module $app"
+      module unload [lindex [split $app "/"] 0]
+    }
   }
 }
-foreach path [glob /opt/modulefiles/*/.gnu] {
+foreach path [glob -nocomplain /opt/modulefiles/*/.gnu] {
   prepend-path MODULEPATH $path
 }
 
