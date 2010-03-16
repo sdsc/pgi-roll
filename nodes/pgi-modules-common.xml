@@ -81,55 +81,6 @@ set ModulesVersion "VERSION"
 /bin/ln -s /opt/modulefiles/compilers/pgi/.version.$version \
            /opt/modulefiles/compilers/pgi/.version
 
-# Add module files for the pre-installed gnu compilers
-/bin/mkdir -m 0755 -p /opt/modulefiles/compilers/gnu
-export version=`gcc --version | head -1 | awk ' {print $3}'`
-
-<file name="/opt/modulefiles/.tmp/gnu" perms="0644">
-#%Module1.0
-module-whatis "GNU compilers"
-module-whatis "Version: VERSION"
-module-whatis "Description: GNU compilers"
-
-# Unload any compiler-dependent modules
-if {[module-info mode switch1] || [module-info mode switch3]} {
-  set commandWords [split [exec /bin/ps -p [pid] -o args=] " "]
-  set switchFrom [lindex [split [module-info name] "/"] 0]
-  set switchTo [lindex [split [lindex $commandWords end] "/"] 0]
-  set unloadApps [expr ! [string equal $switchTo $switchFrom]]
-} elseif {[module-info mode remove]} {
-  set unloadApps 1
-} else {
-  set unloadApps 0
-}
-if {$unloadApps && [info exists env(LOADEDMODULES)]} {
-  foreach app [split $env(LOADEDMODULES) ":"] {
-    if {[llength [glob -nocomplain /opt/modulefiles/*/.gnu/$app]] > 0} {
-      puts stderr "Unloading compiler-dependent module $app"
-      module unload [lindex [split $app "/"] 0]
-    }
-  }
-}
-foreach path [glob -nocomplain /opt/modulefiles/*/.gnu] {
-  prepend-path MODULEPATH $path
-}
-
-# Compiler environment modifications: none needed
-</file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gnu
-/bin/cp /opt/modulefiles/.tmp/gnu /opt/modulefiles/compilers/gnu/$version
-
-<file name="/opt/modulefiles/.tmp/gnu.version" perms="0644">
-#%Module1.0
-set ModulesVersion "VERSION"
-</file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/gnu.version
-/bin/cp /opt/modulefiles/.tmp/gnu.version \
-        /opt/modulefiles/compilers/gnu/.version.$version
-
-/bin/ln -s /opt/modulefiles/compilers/gnu/.version.$version \
-           /opt/modulefiles/compilers/gnu/.version
-
 </post>
 
 </kickstart>
