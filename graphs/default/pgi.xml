@@ -18,13 +18,19 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <edge from="base">
   <to>pgi-common</to>
 </edge>
+<order head="base">
+  <tail>pgi-common</tail>
+</order>
 
 <edge from="envmodules-common">
   <to>pgi-modules-common</to>
 </edge>
-  
 <order head="envmodules-common">
   <tail>pgi-modules-common</tail>
+</order>
+  
+<order head="pgi-common">
+  <tail>pgi-module-common</tail>
 </order>
 
 </graph>
