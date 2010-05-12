@@ -1,5 +1,5 @@
 ROLLNAME = pgi
-RELEASE = 806
+RELEASE = 105
 COLOR   = orange
 
 REDHAT.ROOT = $(PWD)

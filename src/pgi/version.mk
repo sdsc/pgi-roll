@@ -1,3 +1,3 @@
 NAME		= pgi
-VERSION		= 806
+VERSION		= 105
 RELEASE		= 1
