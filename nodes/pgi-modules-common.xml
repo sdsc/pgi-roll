@@ -39,8 +39,10 @@ module-whatis "PGI compilers"
 module-whatis "Version: VERSION"
 module-whatis "Description: PGI compilers (C/C++/Fortran)"
 
-# Unload any compiler-dependent modules
+# If unloading, also unload any pgi-dependent modules
 if {[module-info mode switch1] || [module-info mode switch3]} {
+  # Get the command line that invoked this process; unload only if switching
+  # from pgi to another (compiler) module, e.g., "module switch pgi gnu"
   set commandWords [split [exec /bin/ps -p [pid] -o args=] " "]
   set switchFrom [lindex [split [module-info name] "/"] 0]
   set switchTo [lindex [split [lindex $commandWords end] "/"] 0]
@@ -52,12 +54,15 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
 }
 if {$unloadApps &amp;&amp; [info exists env(LOADEDMODULES)]} {
   foreach app [split $env(LOADEDMODULES) ":"] {
+    # Check whether any pgi-dependent module dir contains a module w/this name
     if {[llength [glob -nocomplain /opt/modulefiles/*/.pgi/$app]] > 0} {
       puts stderr "Unloading compiler-dependent module $app"
       module unload [lindex [split $app "/"] 0]
     }
   }
 }
+
+# Add all pgi-dependent module dirs to the search path
 foreach path [glob -nocomplain /opt/modulefiles/*/.pgi] {
   prepend-path MODULEPATH $path
 }
