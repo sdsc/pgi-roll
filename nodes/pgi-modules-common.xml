@@ -17,6 +17,11 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 
 <post>
 
+# Remove /etc/profile.d files in favor of loadable modules when available
+if test -f /etc/profile.d/pgi.sh; then
+  /bin/rm -f /etc/profile.d/pgi.*
+fi
+
 # Make sure modules package reads modulefiles from /opt/modulefiles/compilers
 line='setenv MODULEPATH /opt/modulefiles/compilers:$MODULEPATH'
 if test `grep -Fc "$line" /etc/profile.d/modules.csh` = 0; then
