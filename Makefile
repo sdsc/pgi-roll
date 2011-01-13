@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log$
+# Revision 1.2  2011/01/13 21:43:36  jhayes
+# Remove rpm dirs in "make clean".
+#
 # Revision 1.1  2009/05/06 23:38:40  mahidhar
 # *** empty log message ***
 #
@@ -72,4 +75,5 @@ default:	roll
 
 clean::
 	rm -f _arch bootstrap.py
+	rm -fr RPMS SRPMS
 
