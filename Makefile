@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log$
+# Revision 1.3  2011/01/14 21:02:58  jhayes
+# Removing RPMS in "make clean" causes roll build to fail.
+#
 # Revision 1.2  2011/01/13 21:43:36  jhayes
 # Remove rpm dirs in "make clean".
 #
@@ -75,5 +78,3 @@ default:	roll
 
 clean::
 	rm -f _arch bootstrap.py
-	rm -fr RPMS SRPMS
-
