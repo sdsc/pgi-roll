@@ -7,7 +7,7 @@
 # 		         www.rocksclusters.org
 # 		       version 5.2 (Chimichanga)
 # 
-# Copyright (c) 2000 - 2009 The Regents of the University of California.
+# Copyright (c) 2000 - 2011 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -53,27 +53,6 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # 
 # @Copyright@
-#
-# $Log$
-# Revision 1.6  2009/08/22 02:39:11  mahidhar
-# Adding files for MPICHMX roll. Includes both Intel and PGI versions.
-#
-# Revision 1.5  2009/07/15 06:30:14  phil
-# Update so that building rpm doesn't erase installed version
-#
-# Revision 1.4  2009/06/15 01:18:36  phil
-# Simplify
-#
-# Revision 1.3  2009/06/14 23:40:06  phil
-# install source and build from their instead of via RPM.
-# This is an attempt to uncover the latency issue on Triton
-#
-# Revision 1.2  2009/06/10 22:49:34  phil
-# Change to the non-bonding driver
-#
-# Revision 1.1  2009/05/11 18:58:41  mjk
-# *** empty log message ***
-#
 
 PKGROOT		= /opt/pgi
 REDHAT.ROOT     = $(CURDIR)/../../

@@ -7,7 +7,7 @@
 # 		         www.rocksclusters.org
 # 		        version 4.3 (Mars Hill)
 # 
-# Copyright (c) 2000 - 2007 The Regents of the University of California.
+# Copyright (c) 2000 - 2011 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -53,23 +53,6 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # 
 # @Copyright@
-#
-# $Log$
-# Revision 1.3  2011/01/14 21:02:58  jhayes
-# Removing RPMS in "make clean" causes roll build to fail.
-#
-# Revision 1.2  2011/01/13 21:43:36  jhayes
-# Remove rpm dirs in "make clean".
-#
-# Revision 1.1  2009/05/06 23:38:40  mahidhar
-# *** empty log message ***
-#
-# Revision 1.2  2009/04/20 18:52:12  jhayes
-# Tweaks.
-#
-# Revision 1.1  2009/02/05 18:36:05  bruno
-# added
-#
 #
 
 -include $(ROLLSROOT)/etc/Rolls.mk

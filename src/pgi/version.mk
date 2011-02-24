@@ -1,3 +1,3 @@
-NAME		= pgi
-VERSION		= 105
-RELEASE		= 1
+NAME    = pgi
+VERSION = 105
+RELEASE = 1

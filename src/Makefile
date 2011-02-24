@@ -6,7 +6,7 @@
 # 		         www.rocksclusters.org
 # 		        version 4.3 (Mars Hill)
 # 
-# Copyright (c) 2000 - 2007 The Regents of the University of California.
+# Copyright (c) 2000 - 2011 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -52,17 +52,6 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # 
 # @Copyright@
-#
-# $Log$
-# Revision 1.1  2009/05/13 21:18:26  jhayes
-# Add missing files + fix a Makefile bug.
-#
-# Revision 1.2  2009/04/01 19:15:34  phil
-# Adjustments to build on Solaris
-#
-# Revision 1.1  2009/02/05 18:36:05  bruno
-# added
-#
 #
 
 -include $(shell ${ROCKSROOT}/bin/arch).mk
