@@ -17,7 +17,7 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 
 <edge from="base">
   <to>pgi-common</to>
-  <to>pgi-roll-teset</to>
+  <to>pgi-roll-test</to>
 </edge>
 <order head="base">
   <tail>pgi-common</tail>
