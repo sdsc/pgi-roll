@@ -30,7 +30,7 @@ export LD_LIBRARY_PATH=/opt/pgi/linux86-64/10.5/libso:$LD_LIBRARY_PATH
 </file>
 
 <file name="/etc/man.config" mode="append" >
-MANPATH /opt/pgi/linux86-64/8.0/man
+MANPATH /opt/pgi/linux86-64/10.5/man
 </file>
 
 </post>
