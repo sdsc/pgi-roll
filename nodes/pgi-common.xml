@@ -20,17 +20,17 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <post>
 
 <file name="/etc/profile.d/pgi.csh" perms="0644">
-setenv PATH /opt/pgi/linux86-64/10.5/bin:$PATH
-setenv LD_LIBRARY_PATH /opt/pgi/linux86-64/10.5/libso:$LD_LIBRARY_PATH
+setenv PATH /opt/pgi/linux86-64/11.9/bin:$PATH
+setenv LD_LIBRARY_PATH /opt/pgi/linux86-64/11.9/libso:$LD_LIBRARY_PATH
 </file>
 
 <file name="/etc/profile.d/pgi.sh" perms="0644">
-export PATH=/opt/pgi/linux86-64/10.5/bin:$PATH
-export LD_LIBRARY_PATH=/opt/pgi/linux86-64/10.5/libso:$LD_LIBRARY_PATH
+export PATH=/opt/pgi/linux86-64/11.9/bin:$PATH
+export LD_LIBRARY_PATH=/opt/pgi/linux86-64/11.9/libso:$LD_LIBRARY_PATH
 </file>
 
 <file name="/etc/man.config" mode="append" >
-MANPATH /opt/pgi/linux86-64/10.5/man
+MANPATH /opt/pgi/linux86-64/11.9/man
 </file>
 
 </post>

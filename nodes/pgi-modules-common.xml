@@ -36,7 +36,7 @@ fi
 <!-- env vars in <file> tags don't work, so use fixed-path temps -->
 /bin/mkdir -m 0755 -p /opt/modulefiles/compilers/pgi
 /bin/mkdir -m 0755 -p /opt/modulefiles/.tmp
-export version=10.5
+export version=11.9
 
 <file name="/opt/modulefiles/.tmp/pgi" perms="0644">
 #%Module1.0
