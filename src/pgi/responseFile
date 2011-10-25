@@ -1,11 +1,12 @@
 accept
 1
-y
+/opt/pgi
+y 
 accept
-y
+n
+yes
 accept
-
 n
+n 
+n 
 n
-n
-
