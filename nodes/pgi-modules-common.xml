@@ -18,30 +18,28 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <post>
 
 # Remove /etc/profile.d files in favor of loadable modules when available
+
 if test -f /etc/profile.d/pgi.sh; then
+
   /bin/rm -f /etc/profile.d/pgi.*
-fi
 
-# Make sure modules package reads modulefiles from /opt/modulefiles/compilers
-line='setenv MODULEPATH /opt/modulefiles/compilers:$MODULEPATH'
-if test `grep -Fc "$line" /etc/profile.d/modules.csh` = 0; then
-  echo "$line" >> /etc/profile.d/modules.csh
-fi
-line='export MODULEPATH=/opt/modulefiles/compilers:$MODULEPATH'
-if test `grep -Fc "$line" /etc/profile.d/modules.sh` = 0; then
-  echo "$line" >> /etc/profile.d/modules.sh
-fi
+  # Make sure modules package reads modulefiles from /opt/modulefiles/compilers
+  line='setenv MODULEPATH /opt/modulefiles/compilers:$MODULEPATH'
+  if test `grep -Fc "$line" /etc/profile.d/modules.csh` = 0; then
+    echo "$line" >> /etc/profile.d/modules.csh
+  fi
+  line='export MODULEPATH=/opt/modulefiles/compilers:$MODULEPATH'
+  if test `grep -Fc "$line" /etc/profile.d/modules.sh` = 0; then
+    echo "$line" >> /etc/profile.d/modules.sh
+  fi
 
-# Add module files for the PGI compilers
-<!-- env vars in <file> tags don't work, so use fixed-path temps -->
-/bin/mkdir -m 0755 -p /opt/modulefiles/compilers/pgi
-/bin/mkdir -m 0755 -p /opt/modulefiles/.tmp
-export version=11.9
+  # Add module files for the PGI compilers
+  /bin/mkdir -m 0755 -p /opt/modulefiles/compilers/pgi
 
-<file name="/opt/modulefiles/.tmp/pgi" perms="0644">
+<file name="/opt/modulefiles/compilers/pgi/11.9" perms="0644">
 #%Module1.0
 module-whatis "PGI compilers"
-module-whatis "Version: VERSION"
+module-whatis "Version: 11.9"
 module-whatis "Description: PGI compilers (C/C++/Fortran)"
 
 # If unloading, also unload any pgi-dependent modules
@@ -73,23 +71,19 @@ foreach path [glob -nocomplain /opt/modulefiles/*/.pgi] {
 }
 
 # Compiler environment modifications
-prepend-path PATH "/opt/pgi/linux86-64/VERSION/bin"
-prepend-path LD_LIBRARY_PATH "/opt/pgi/linux86-64/VERSION/libso"
-
+prepend-path PATH "/opt/pgi/linux86-64/11.9/bin"
+prepend-path LD_LIBRARY_PATH "/opt/pgi/linux86-64/11.9/libso"
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/pgi
-/bin/cp /opt/modulefiles/.tmp/pgi /opt/modulefiles/compilers/pgi/$version
 
-<file name="/opt/modulefiles/.tmp/pgi.version" perms="0644">
+<file name="/opt/modulefiles/compilers/pgi/.version.11.9" perms="0644">
 #%Module1.0
-set ModulesVersion "VERSION"
+set ModulesVersion "11.9"
 </file>
-/usr/bin/perl -pi -e "s/VERSION/$version/" /opt/modulefiles/.tmp/pgi.version
-/bin/cp /opt/modulefiles/.tmp/pgi.version \
-        /opt/modulefiles/compilers/pgi/.version.$version
 
-/bin/ln -s /opt/modulefiles/compilers/pgi/.version.$version \
-           /opt/modulefiles/compilers/pgi/.version
+  /bin/ln -s /opt/modulefiles/compilers/pgi/.version.11.9 \
+             /opt/modulefiles/compilers/pgi/.version
+
+fi
 
 </post>
 

@@ -29,7 +29,7 @@ export PATH=/opt/pgi/linux86-64/11.9/bin:$PATH
 export LD_LIBRARY_PATH=/opt/pgi/linux86-64/11.9/libso:$LD_LIBRARY_PATH
 </file>
 
-<file name="/etc/man.config" mode="append" >
+<file name="/etc/man.config" mode="append">
 MANPATH /opt/pgi/linux86-64/11.9/man
 </file>
 

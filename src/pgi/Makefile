@@ -54,21 +54,26 @@
 # 
 # @Copyright@
 
-PKGROOT		= /opt/pgi
-REDHAT.ROOT     = $(CURDIR)/../../
-RPM.EXTRAS 	= %define __os_install_post /usr/lib/rpm/brp-compress
+PKGROOT = /opt/pgi
+SOURCE = pgi-$(VERSION)
+REDHAT.ROOT = $(CURDIR)/../../
+RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
+
 -include $(ROCKSROOT)/etc/Rules.mk
-include Rules.mk
 
 build:
-	$(TAR) xvf $(NAME)-$(VERSION).tar.gz	
-	/bin/cp install-fixed $(NAME)-$(VERSION)/install
+	$(TAR) zxf $(SOURCE).tar.gz	
+	/bin/cp install-fixed $(SOURCE)/install
 	
 install::
-	( mkdir -p $(ROOT)/$(PKGROOT);                       \
-	if [ ! -d $(PKGROOT) ]; then mkdir -p $(PKGROOT); fi; \
-	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT);           \
-	cd $(NAME)-$(VERSION); ./install < ../responseFile;   \
-	umount $(PKGROOT) )
+	( \
+	  mkdir -p $(ROOT)/$(PKGROOT); \
+	  if [ ! -d $(PKGROOT) ]; then mkdir -p $(PKGROOT); fi; \
+	  mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT); \
+	  cd $(SOURCE); \
+	  ./install < ../responseFile; \
+	  umount $(PKGROOT) \
+	)
+
 clean::
-	
+	rm -rf $(SOURCE)
