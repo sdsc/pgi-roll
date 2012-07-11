@@ -8,83 +8,20 @@ http://www.pgroup.com
 </description>
 
 <copyright>
-Copyright (c) 2000 - 2011 The Regents of the University of California.
+Copyright (c) 2000 - 2012 The Regents of the University of California.
 All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 </copyright>
 
 <changelog>
 </changelog>
 
+<package>pgi-modules</package>
+
 <post>
-
 # Remove /etc/profile.d files in favor of loadable modules when available
-
 if test -f /etc/profile.d/pgi.sh; then
-
   /bin/rm -f /etc/profile.d/pgi.*
-
-  # Make sure modules package reads modulefiles from /opt/modulefiles/compilers
-  line='setenv MODULEPATH /opt/modulefiles/compilers:$MODULEPATH'
-  if test `grep -Fc "$line" /etc/profile.d/modules.csh` = 0; then
-    echo "$line" >> /etc/profile.d/modules.csh
-  fi
-  line='export MODULEPATH=/opt/modulefiles/compilers:$MODULEPATH'
-  if test `grep -Fc "$line" /etc/profile.d/modules.sh` = 0; then
-    echo "$line" >> /etc/profile.d/modules.sh
-  fi
-
-  # Add module files for the PGI compilers
-  /bin/mkdir -m 0755 -p /opt/modulefiles/compilers/pgi
-
-<file name="/opt/modulefiles/compilers/pgi/11.9" perms="0644">
-#%Module1.0
-module-whatis "PGI compilers"
-module-whatis "Version: 11.9"
-module-whatis "Description: PGI compilers (C/C++/Fortran)"
-
-# If unloading, also unload any pgi-dependent modules
-if {[module-info mode switch1] || [module-info mode switch3]} {
-  # Get the command line that invoked this process; unload only if switching
-  # from pgi to another (compiler) module, e.g., "module switch pgi gnu"
-  set commandWords [split [exec /bin/ps -p [pid] -o args=] " "]
-  set switchFrom [lindex [split [module-info name] "/"] 0]
-  set switchTo [lindex [split [lindex $commandWords end] "/"] 0]
-  set unloadApps [expr ! [string equal $switchTo $switchFrom]]
-} elseif {[module-info mode remove]} {
-  set unloadApps 1
-} else {
-  set unloadApps 0
-}
-if {$unloadApps &amp;&amp; [info exists env(LOADEDMODULES)]} {
-  foreach app [split $env(LOADEDMODULES) ":"] {
-    # Check whether any pgi-dependent module dir contains a module w/this name
-    if {[llength [glob -nocomplain /opt/modulefiles/*/.pgi/$app]] > 0} {
-      puts stderr "Unloading compiler-dependent module $app"
-      module unload [lindex [split $app "/"] 0]
-    }
-  }
-}
-
-# Add all pgi-dependent module dirs to the search path
-foreach path [glob -nocomplain /opt/modulefiles/*/.pgi] {
-  prepend-path MODULEPATH $path
-}
-
-# Compiler environment modifications
-prepend-path PATH "/opt/pgi/linux86-64/11.9/bin"
-prepend-path LD_LIBRARY_PATH "/opt/pgi/linux86-64/11.9/libso"
-</file>
-
-<file name="/opt/modulefiles/compilers/pgi/.version.11.9" perms="0644">
-#%Module1.0
-set ModulesVersion "11.9"
-</file>
-
-  /bin/ln -s /opt/modulefiles/compilers/pgi/.version.11.9 \
-             /opt/modulefiles/compilers/pgi/.version
-
 fi
-
 </post>
 
 </kickstart>
