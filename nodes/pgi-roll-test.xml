@@ -60,7 +60,7 @@ if($appliance =~ /$installedOnAppliancesPattern/) {
 }
 SKIP: {
 
-  skip 'pgi compilers not installed', 6 if ! $isInstalled;
+  skip 'pgi compilers not installed', 9 if ! $isInstalled;
   my $setup = $modulesInstalled ?
               `$ENV{MODULESHOME}/bin/modulecmd bash load pgi` :
               'echo > /dev/null'; # noop
@@ -78,27 +78,13 @@ SKIP: {
   $output = `man pgcc 2>&1`;
   ok($output =~ /Portland/, 'man works for pgi');
   
-}
-
-# pgi-modules-common.xml
-SKIP: {
-
-  skip 'pgi compilers not installed', 1 if ! $isInstalled;
-  if($modulesInstalled) {
-    ok(! -f '/etc/profile.d/pgi.csh' &&
-       ! -f '/etc/profile.d/pgi.sh', 'pgi profile.d removed');
-    like($ENV{MODULEPATH}, qr#/opt/modulefiles/compilers#,
-         'MODULEPATH set for compilers');
-    `/bin/ls /opt/modulefiles/compilers/pgi/[0-9]* 2>&1`;
-    ok($? == 0, 'pgi module installed');
-    `/bin/ls /opt/modulefiles/compilers/pgi/.version.[0-9]* 2>&1`;
-    ok($? == 0, 'pgi version module installed');
-    ok(-l '/opt/modulefiles/compilers/pgi/.version',
-       'pgi version module link created');
-  } else {
-    ok(-f '/etc/profile.d/pgi.csh' && -f '/etc/profile.d/pgi.sh',
-       'pgi profile.d installed');
-  }
+  skip 'modules not installed', 3 if ! $modulesInstalled;
+  `/bin/ls /opt/modulefiles/compilers/pgi/[0-9]* 2>&1`;
+  ok($? == 0, 'pgi module installed');
+  `/bin/ls /opt/modulefiles/compilers/pgi/.version.[0-9]* 2>&1`;
+  ok($? == 0, 'pgi version module installed');
+  ok(-l '/opt/modulefiles/compilers/pgi/.version',
+     'pgi version module link created');
 
 }
 

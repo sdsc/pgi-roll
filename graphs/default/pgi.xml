@@ -22,22 +22,11 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
   <tail>pgi-common</tail>
 </order>
 
-<edge from="envmodules-common">
-  <to>pgi-modules-common</to>
-</edge>
-<order head="envmodules-common">
-  <tail>pgi-modules-common</tail>
-</order>
-  
 <edge from="base">
   <to>pgi-roll-test</to>
 </edge>
 <order head="base">
   <tail>pgi-roll-test</tail>
-</order>
-
-<order head="pgi-common">
-  <tail>pgi-modules-common</tail>
 </order>
 
 </graph>
