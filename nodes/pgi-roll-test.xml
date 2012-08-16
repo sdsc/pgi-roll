@@ -31,7 +31,6 @@ my $appliance = $#ARGV >= 0 ? $ARGV[0] :
                 -d '/export/rocks/install' ? 'Frontend' : 'Compute';
 my $installedOnAppliancesPattern = '.';
 my $isInstalled = -d '/opt/pgi';
-my $modulesInstalled = -f '/etc/profile.d/modules.sh';
 my $output;
 
 my $TESTFILE = 'tmppgi';
@@ -60,22 +59,24 @@ if($appliance =~ /$installedOnAppliancesPattern/) {
 }
 SKIP: {
 
-  skip 'pgi compilers not installed', 9 if ! $isInstalled;
+  skip 'pgi compilers not installed', 10 if ! $isInstalled;
+  my $modulesInstalled = -f '/etc/profile.d/modules.sh';
   my $setup = $modulesInstalled ?
-              `$ENV{MODULESHOME}/bin/modulecmd bash load pgi` :
+              ". /etc/profile.d/modules.sh; module load pgi" :
               'echo > /dev/null'; # noop
-  $output = `$setup 2>&1; pgcc -o $TESTFILE $TESTFILE.c 2>&1`;
+  $output = `$setup; pgcc -o $TESTFILE $TESTFILE.c 2>&1`;
   ok($? == 0, 'pgi C compiler works');
-  $output = `./$TESTFILE`;
+  $output = `$setup; ./$TESTFILE`;
   ok($? == 0, 'compiled C program runs');
   like($output, qr/Hello world/, 'compile C program correct output');
   
-  $output = `$setup 2>&1; pgf77 -o $TESTFILE $TESTFILE.f 2>&1`;
+  $output = `$setup; pgf77 -o $TESTFILE $TESTFILE.f 2>&1`;
   ok($? == 0, 'pgi FORTRAN compiler works');
-  $output = `./$TESTFILE`;
+  $output = `$setup; ./$TESTFILE`;
   ok($? == 0, 'compiled FORTRAN program runs');
   like($output, qr/Hello world/, 'compile FORTRAN program correct output');
-  $output = `man pgcc 2>&1`;
+
+  $output = `$setup; man pgcc 2>&1`;
   ok($output =~ /Portland/, 'man works for pgi');
   
   skip 'modules not installed', 3 if ! $modulesInstalled;
