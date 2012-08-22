@@ -1,3 +1,3 @@
 NAME    = pgi
-VERSION = 119
+VERSION = 12.8
 RELEASE = 1

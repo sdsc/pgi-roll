@@ -71,7 +71,7 @@ install::
 	  if [ ! -d $(PKGROOT) ]; then mkdir -p $(PKGROOT); fi; \
 	  mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT); \
 	  cd $(SOURCE); \
-	  ./install < ../responseFile; \
+	  ./install; \
 	  umount $(PKGROOT) \
 	)
 
