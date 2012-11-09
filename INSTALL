@@ -1,0 +1,12 @@
+This roll bundles the PGI compilers.  To install, execute these instructions
+on a Rocks development machine (e.g., a frontend), starting in this directory:
+
+% make
+% rocks add roll *.iso
+% rocks enable roll pgi
+% cd /export/rocks/install
+% rocks create distro
+% rocks run roll pgi | bash
+
+In addition to the software itself, the roll installs PGI environment module
+files in /opt/modulefiles/compilers/pgi.

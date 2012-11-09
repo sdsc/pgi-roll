@@ -17,5 +17,6 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 
 <package>pgi</package>
 <package>pgi-modules</package>
+<package>pgi-roll-test</package>
 
 </kickstart>
