@@ -1,3 +1,3 @@
 NAME    = pgi-modules
-VERSION = 12.8
-RELEASE = 1
+VERSION = 12.10
+RELEASE = 0

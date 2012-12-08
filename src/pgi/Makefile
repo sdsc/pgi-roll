@@ -63,17 +63,17 @@ RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 
 build:
 	$(TAR) zxf $(SOURCE).tar.gz	
-	/bin/cp install-fixed $(SOURCE)/install
+	/bin/cp patch-files/install $(SOURCE)/install
 	
 install::
+	mkdir -p $(ROOT)/$(PKGROOT)
+	mkdir -p $(PKGROOT)
+	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
 	( \
-	  mkdir -p $(ROOT)/$(PKGROOT); \
-	  if [ ! -d $(PKGROOT) ]; then mkdir -p $(PKGROOT); fi; \
-	  mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT); \
 	  cd $(SOURCE); \
-	  ./install; \
-	  umount $(PKGROOT) \
+	  ./install $(VERSION) \
 	)
+	umount $(PKGROOT)
 
 clean::
 	rm -rf $(SOURCE)
