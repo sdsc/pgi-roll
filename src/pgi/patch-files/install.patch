@@ -1,0 +1,216 @@
+--- pgi-13.2/install	2013-02-11 07:14:47.000000000 -0800
++++ pgi-13.2/install.noninter	2013-11-14 13:25:10.000000000 -0800
+@@ -14,7 +14,7 @@
+ 
+ # XXX UPDATE this whenever updating the distribution
+ 
+-release='13.2'
++release=$1
+ build='0'
+ REL_VERSION='2013'
+ prerelease=0
+@@ -83,10 +83,13 @@
+ else 
+   licensefile=$SRC/common/BETA_LICENSE
+ fi
+-more $licensefile
++#JJH
++#more $licensefile
+ echo
+ echo -n 'Do you accept these terms? (accept,decline) '
+-read x
++#JJH
++#read x
++x=accept
+ ans=`echo $x | awk '{print $1}'`
+ if test "$ans" != "accept" ; then
+   quit
+@@ -106,7 +109,9 @@
+  
+ EOF_NETWORK
+ echo -n 'Please choose install option: ' 
+-read x
++#JJH
++#read x
++x=1
+ ans=`echo $x | awk '{print $1}'`
+ if test -n "$ans" ; then
+   case $ans in
+@@ -177,7 +182,9 @@
+ EOF_INSTALL_DIR
+  
+ echo -n "Installation directory? [$INSTALL_DIR] "
+-read ans
++#JJH
++#read ans
++ans=/opt/pgi
+ if test -n "$ans" ; then
+   case $ans in
+   ~* )
+@@ -199,7 +206,9 @@
+ if test $network_install -eq 1; then
+   DEFAULT_SHARED=/usr/pgi/$release/share_objects
+   echo "Common local directory on all hosts for shared objects: [$DEFAULT_SHARED]"
+-  read ans
++#JJH
++  #read ans
++  ans=
+     if test -n "$ans" ; then
+       case $ans in
+       ~* )
+@@ -289,17 +298,22 @@
+ 
+ EOF_ACML
+ echo -n 'Install the ACML? (y/n) '
+-read x
++#JJH
++#read x
++x=y
+ ans=`echo $x | awk '{print $1}'`
+ 
+ if test "$ans" = "y" -o "$ans" = "yes" ; then
+   echo
+   echo 'In order to install the ACML software, please read and accept the'
+   echo 'following license.'
+-  more $SRC/common/LICENSE_ACML.txt
++#JJH
++  #more $SRC/common/LICENSE_ACML.txt
+   echo
+   echo -n 'Do you accept these terms? (accept,decline) '
+-  read x
++#JJH
++  #read x
++  x=accept
+   ans=`echo $x | awk '{print $1}'`
+   if test "$ans" != "accept" ; then
+     install_acml_sw=0
+@@ -310,7 +324,9 @@
+     echo '  (1) ACML 5.3.0'
+     echo '  (2) ACML 5.3.0 using FMA4'
+     echo 'Enter another value to override the default (1)'
+-    read x
++#JJH
++    #read x
++    x=1
+     ans=`echo $x | awk '{print $1}'`
+     if test "$ans" = "2" ; then
+       install_acml_sw=2
+@@ -335,17 +351,22 @@
+ 
+ EOF_CUDA
+ echo -n 'Install CUDA Toolkit Components? (y/n) '
+-read x
++#JJH
++#read x
++x=y
+ ans=`echo $x | awk '{print $1}'`
+ 
+ if test "$ans" = "y" -o "$ans" = "yes" ; then
+   echo
+   echo 'In order to install the CUDA software, please read and accept the'
+   echo 'following license.'
+-  more $SRC/common/LICENSE_NVIDIA_CUDA.txt
++#JJH
++  #more $SRC/common/LICENSE_NVIDIA_CUDA.txt
+   echo
+   echo -n 'Do you accept these terms? (accept,decline) '
+-  read x
++#JJH
++  #read x
++  x=accept
+   ans=`echo $x | awk '{print $1}'`
+   if test "$ans" != "accept" ; then
+     install_nvidia_cuda=0
+@@ -367,7 +388,9 @@
+ EOF_JAVA_INST
+      ans="no"
+      echo -n "Overwrite the installed JAVA JRE `ls -1 $INSTALL_DIR/$target/$REL_VERSION/java` ? [$ans] "
+-     read x 
++#JJH
++     #read x 
++     x=no
+      if test -n "$x" ; then
+        ans=`echo $x | awk '{print $1}'`
+      fi
+@@ -388,7 +411,9 @@
+ EOF_JAVA
+      ans="yes"
+      echo -n "Install JAVA JRE [$ans] "
+-     read x 
++#JJH
++     #read x 
++     x=yes
+      if test -n "$x" ; then
+        ans=`echo $x | awk '{print $1}'`
+      fi
+@@ -398,10 +423,13 @@
+   echo
+   echo 'In order to install the JAVA software, please read and accept the'
+   echo 'following license.'
+-  more $SRC/common/LICENSE_JRE_6U21.txt
++#JJH
++  #more $SRC/common/LICENSE_JRE_6U21.txt
+   echo
+   echo -n 'Do you accept these terms? (accept,decline) '
+-  read x
++#JJH
++  #read x
++  x=accept
+   ans=`echo $x | awk '{print $1}'`
+   if test "$ans" != "accept" ; then
+     install_java_jre=0
+@@ -533,7 +561,9 @@
+ echo "update the links in that directory to point to the $release directory"
+ echo " "
+ echo -n "Do you wish to update/create links in the $REL_VERSION directory? (y/n) "
+-read x
++#JJH
++#read x
++x=n
+ ans=`echo $x | awk '{print $1}'`
+ if test "$ans" = "y" -o "$ans" = "yes" ; then
+ 
+@@ -642,7 +672,9 @@
+       echo '  (1) ACML 5.3.0'
+       echo '  (2) ACML 5.3.0 using FMA4'
+       echo 'Enter another value to override the default (1)'
+-      read x
++#JJH
++      #read x
++      x=1
+       ans=`echo $x | awk '{print $1}'`
+       if test "$ans" = "2" ; then
+         install_acml_sw=2
+@@ -680,7 +712,9 @@
+ 
+ if test -e $SRC/install_mpich; then
+   echo -n 'Do you wish to install MPICH1? (y/n) '
+-  read x
++#JJH
++  #read x
++  x=n
+   ans=`echo $x | awk '{print $1}'`
+   if test "$ans" = "y" -o "$ans" = "yes" ; then
+     $SRC/install_mpich "$INSTALL_DIR" "$REL_VERSION" "$release"
+@@ -720,7 +754,9 @@
+ 
+   echo 
+   echo -n 'Do you wish to generate license keys? (y/n) '
+-  read x
++#JJH
++  #read x
++  x=n
+   ans=`echo $x | awk '{print $1}'`
+ 
+   if test "$ans" = "y" -o "$ans" = "yes" ; then
+@@ -747,7 +783,9 @@
+ 
+ echo
+ echo -n 'Do you want the files in the install directory to be read-only? (y/n) '
+-read x
++#JJH
++#read x
++x=n
+ ans=`echo $x | awk '{print $1}'`
+ if test "$ans" = "y" -o "$ans" = "yes" ; then
+   /bin/chmod -Rf a-w $INSTALL_DIR/linux86*/$release
