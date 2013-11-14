@@ -55,25 +55,31 @@
 # @Copyright@
 
 PKGROOT = /opt/pgi
-SOURCE = pgi-$(VERSION)
+SOURCE = $(PGI_SOURCE_DIR)
 REDHAT.ROOT = $(CURDIR)/../../
 RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 
 -include $(ROCKSROOT)/etc/Rules.mk
+include pull.mk
 
-build:
-	$(TAR) zxf $(SOURCE).tar.gz	
-	/bin/cp patch-files/install $(SOURCE)/install
-	
+build: $(SRC_DIRS)
+	#$(TAR) zxf $(SOURCE).tar.gz	
+	#/bin/cp patch-files/install $(SOURCE)/install
+	/usr/bin/patch -b $(SOURCE)/install patch-files/install.patch
+
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
-	mkdir -p $(PKGROOT)
-	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
+	if [ ! -d $(PKGROOT) ]; then \
+		mkdir -p $(PKGROOT)
+	if [ ! $( /bin/mountpoint $(PKGROOT) ) ]; then \
+		mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
 	( \
 	  cd $(SOURCE); \
 	  ./install $(VERSION) \
 	)
-	umount $(PKGROOT)
+	if [ $( /bin/mountpoint $(PKGROOT) ]; then \
+		umount $(PKGROOT)
 
 clean::
+	-rmdir $(PKGROOT)
 	rm -rf $(SOURCE)
