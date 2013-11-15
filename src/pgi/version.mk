@@ -2,7 +2,7 @@ NAME            = pgi
 VERSION         = 13.2
 RELEASE         = 0
 
-SRC_SUBDIR      = pgi 
+SRC_SUBDIR      = pgi
 
 PGI_NAME        = pgi
 PGI_VERSION     = $(VERSION)
