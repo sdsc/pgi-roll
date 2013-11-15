@@ -69,17 +69,15 @@ build: $(SRC_DIRS)
 
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
-	if [ ! -d $(PKGROOT) ]; then \
-		mkdir -p $(PKGROOT)
-	if [ ! $( /bin/mountpoint $(PKGROOT) ) ]; then \
-		mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
+	mkdir -p $(PKGROOT)
+	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
 	( \
 	  cd $(SOURCE); \
 	  ./install $(VERSION) \
 	)
-	if [ $( /bin/mountpoint $(PKGROOT) ]; then \
-		umount $(PKGROOT)
+	-umount $(PKGROOT)
 
 clean::
+	-umount $(PKGROOT)
 	-rmdir $(PKGROOT)
 	rm -rf $(SOURCE)
