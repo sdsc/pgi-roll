@@ -71,7 +71,7 @@ SRC_DIRS = $(TAR_GZ_DIRS) $(TAR_BZ2_DIRS) $(TGZ_DIRS) $(ZIP_DIRS)
 clean::
 	-rm -rf $(SRC_DIRS)
 
-distclean::
+distclean:: clean
 	-rm -rf $(SRC_PKGS)
 
 endif # __PULL_MK
