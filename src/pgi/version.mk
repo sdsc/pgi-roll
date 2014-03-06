@@ -1,6 +1,7 @@
 NAME            = pgi
 VERSION         = 13.2
 RELEASE         = 0
+RPM.EXTRAS         = AutoReq:No
 
 SRC_SUBDIR      = pgi
 
