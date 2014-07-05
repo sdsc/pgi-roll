@@ -63,7 +63,6 @@ RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 include pull.mk
 
 build: $(SRC_DIRS)
-	#$(TAR) zxf $(SOURCE).tar.gz	
 	#/bin/cp patch-files/install $(SOURCE)/install
 	/usr/bin/patch -b $(SOURCE)/install patch-files/install.patch
 
@@ -76,8 +75,7 @@ install::
 	  ./install $(VERSION) \
 	)
 	-umount $(PKGROOT)
+	-rmdir $(PKGROOT)
 
 clean::
-	-umount $(PKGROOT)
-	-rmdir $(PKGROOT)
 	rm -rf $(SOURCE)

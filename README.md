@@ -20,7 +20,7 @@ In addition, non-SDSC users must also place a `tar.gz` bundle of the PGI install
 
 ## Dependencies
 
-Unknown at this time.
+None.
 
 
 ## Building
@@ -68,16 +68,4 @@ run the test scripts execute the following command(s):
 
 ```shell
 % /root/rolltests/pgi.t 
-ok 1 - pgi compilers installed
-ok 2 - pgi C compiler works
-ok 3 - compiled C program runs
-ok 4 - compile C program correct output
-ok 5 - pgi FORTRAN compiler works
-ok 6 - compiled FORTRAN program runs
-ok 7 - compile FORTRAN program correct output
-ok 8 - man works for pgi
-ok 9 - pgi module installed
-ok 10 - pgi version module installed
-ok 11 - pgi version module link created
-1..11
 ```
