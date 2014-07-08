@@ -29,7 +29,7 @@ To build the pgi-roll, execute these instructions on a Rocks development
 machine (e.g., a frontend or development appliance):
 
 ```shell
-% make default 2>&1 | tee build.log
+% make 2>&1 | tee build.log
 % grep "RPM build error" build.log
 ```
 
