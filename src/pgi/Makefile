@@ -68,14 +68,14 @@ build: $(SRC_DIRS)
 
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
-	mkdir -p $(PKGROOT)
+	-mkdir -p $(PKGROOT)
 	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
 	( \
 	  cd $(SOURCE); \
 	  ./install $(VERSION) \
 	)
-	-umount $(PKGROOT)
-	-rmdir $(PKGROOT)
+	umount $(PKGROOT)
+	-rmdir -p $(PKGROOT)
 
 clean::
 	rm -rf $(SOURCE)
