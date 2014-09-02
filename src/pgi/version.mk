@@ -1,14 +1,16 @@
-NAME            = pgi
-VERSION         = 13.2
-RELEASE         = 1
-RPM.EXTRAS         = AutoReq:No
+NAME           = pgi
+VERSION        = 13.2
+RELEASE        = 1
+PKGROOT        = /opt/pgi
 
-SRC_SUBDIR      = pgi
+SRC_SUBDIR     = pgi
 
-PGI_NAME        = pgi
-PGI_VERSION     = $(VERSION)
-PGI_PKG_SUFFIX  = tar.gz
-PGI_SOURCE_PKG  = $(PGI_NAME)-$(PGI_VERSION).$(PGI_PKG_SUFFIX)
-PGI_SOURCE_DIR  = $(PGI_SOURCE_PKG:%.$(PGI_PKG_SUFFIX)=%)
+SOURCE_NAME    = pgi
+SOURCE_SUFFIX  = tar.gz
+SOURCE_VERSION = $(VERSION)
+SOURCE_PKG     = $(SOURCE_NAME)-$(SOURCE_VERSION).$(SOURCE_SUFFIX)
+SOURCE_DIR     = $(SOURCE_PKG:%.$(SOURCE_SUFFIX)=%)
 
-TAR_GZ_PKGS     = $(PGI_SOURCE_PKG)
+TAR_GZ_PKGS    = $(SOURCE_PKG)
+
+RPM.EXTRAS     = AutoReq:No
