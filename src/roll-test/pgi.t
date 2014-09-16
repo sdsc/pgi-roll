@@ -39,26 +39,21 @@ if($appliance =~ /$installedOnAppliancesPattern/) {
 SKIP: {
 
   skip 'pgi compilers not installed', 10 if ! $isInstalled;
-  my $modulesInstalled = -f '/etc/profile.d/modules.sh';
-  my $setup = $modulesInstalled ?
-              ". /etc/profile.d/modules.sh; module load pgi" :
-              'echo > /dev/null'; # noop
-  $output = `$setup; pgcc -o $TESTFILE $TESTFILE.c 2>&1`;
+  $output = `module load pgi; pgcc -o $TESTFILE $TESTFILE.c 2>&1`;
   ok($? == 0, 'pgi C compiler works');
-  $output = `$setup; ./$TESTFILE`;
+  $output = `module load pgi; ./$TESTFILE`;
   ok($? == 0, 'compiled C program runs');
   like($output, qr/Hello world/, 'compile C program correct output');
   
-  $output = `$setup; pgf77 -o $TESTFILE $TESTFILE.f 2>&1`;
+  $output = `module load pgi; pgf77 -o $TESTFILE $TESTFILE.f 2>&1`;
   ok($? == 0, 'pgi FORTRAN compiler works');
-  $output = `$setup; ./$TESTFILE`;
+  $output = `module load pgi; ./$TESTFILE`;
   ok($? == 0, 'compiled FORTRAN program runs');
   like($output, qr/Hello world/, 'compile FORTRAN program correct output');
 
-  $output = `$setup; man pgcc 2>&1`;
+  $output = `module load pgi; man pgcc 2>&1`;
   ok($output =~ /Portland/, 'man works for pgi');
   
-  skip 'modules not installed', 3 if ! $modulesInstalled;
   `/bin/ls /opt/modulefiles/compilers/pgi/[0-9]* 2>&1`;
   ok($? == 0, 'pgi module installed');
   `/bin/ls /opt/modulefiles/compilers/pgi/.version.[0-9]* 2>&1`;
