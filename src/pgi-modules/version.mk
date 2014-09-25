@@ -1,5 +1,9 @@
-NAME       = pgi-modules
-VERSION    = 13.2
-RELEASE    = 1
+NAME        = pgi-modules
+RELEASE     = 2
+PKGROOT     = /opt/modulefiles/compilers/pgi
 
-RPM.EXTRAS = AutoReq:No
+VERSION_SRC = $(REDHAT.ROOT)/src/pgi/version.mk
+VERSION_INC = version.inc
+include $(VERSION_INC)
+
+RPM.EXTRAS  = AutoReq:No
