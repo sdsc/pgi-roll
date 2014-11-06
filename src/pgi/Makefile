@@ -58,21 +58,35 @@ REDHAT.ROOT = $(CURDIR)/../../
 RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 
 -include $(ROCKSROOT)/etc/Rules.mk
-include pull.mk
+include $(SDSCDEVEL)/Pull.mk
+include $(SDSCDEVEL)/Rules.mk
+
+LICENSE_FILES = $(SOURCE_DIR)/INSTALL.txt
+
+$(NAME).spec: DESCRIPTION LICENSE
+
+DESCRIPTION:
+	( \
+	  $(DESCRIBE_PKG) \
+	) > $@
+
+LICENSE: $(SRC_DIRS)
+	if ! grep -Fq STMicroelectronics $(LICENSE_FILES); then \
+	  exit 2; \
+	fi
+	echo STMicroelectronics > $@
 
 build: $(SRC_DIRS)
 	/usr/bin/patch -b $(SOURCE_DIR)/install patch-files/install.patch
 
 install::
-	mkdir -p $(ROOT)/$(PKGROOT)
-	-mkdir -p $(PKGROOT)
-	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
+	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
+	$(PKGROOT_BIND_MOUNT)
 	( \
 	  cd $(SOURCE_DIR); \
 	  ./install $(VERSION) \
 	)
-	umount $(PKGROOT)
-	-rmdir -p $(PKGROOT)
+	$(PKGROOT_BIND_UMOUNT)
 
 clean::
-	rm -rf $(SOURCE_DIR)
+	rm -rf $(SOURCE_DIR) DESCRIPTION LICENSE

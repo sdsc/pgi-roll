@@ -1,6 +1,6 @@
-NAME           = pgi
+NAME           = sdsc-pgi
 VERSION        = 13.2
-RELEASE        = 1
+RELEASE        = 2
 PKGROOT        = /opt/pgi
 
 SRC_SUBDIR     = pgi
