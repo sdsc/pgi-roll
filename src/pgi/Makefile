@@ -61,8 +61,6 @@ RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 include $(SDSCDEVEL)/Pull.mk
 include $(SDSCDEVEL)/Rules.mk
 
-LICENSE_FILES = $(SOURCE_DIR)/INSTALL.txt
-
 $(NAME).spec: DESCRIPTION LICENSE
 
 DESCRIPTION:
@@ -71,9 +69,7 @@ DESCRIPTION:
 	) > $@
 
 LICENSE: $(SRC_DIRS)
-	if ! grep -Fq STMicroelectronics $(LICENSE_FILES); then \
-	  exit 2; \
-	fi
+	$(CHECK_LICENSE_FILES)
 	echo STMicroelectronics > $@
 
 build: $(SRC_DIRS)
@@ -87,6 +83,7 @@ install::
 	  ./install $(VERSION) \
 	)
 	$(PKGROOT_BIND_UMOUNT)
+	$(INSTALL_LICENSE_FILES)
 
 clean::
 	rm -rf $(SOURCE_DIR) DESCRIPTION LICENSE
