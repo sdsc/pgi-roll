@@ -73,13 +73,13 @@ LICENSE: $(SRC_DIRS)
 	echo STMicroelectronics > $@
 
 build: $(SRC_DIRS)
-	/usr/bin/patch -b $(SOURCE_DIR)/install patch-files/install.patch
 
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	$(PKGROOT_BIND_MOUNT)
 	( \
 	  cd $(SOURCE_DIR); \
+	  PGI_SILENT=true PGI_ACCEPT_EULA=accept PGI_INSTALL_DIR=$(PKGROOT) \
 	  ./install $(VERSION) \
 	)
 	$(PKGROOT_BIND_UMOUNT)
