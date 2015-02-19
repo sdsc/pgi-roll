@@ -17,7 +17,7 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
   set unloadApps 0
 }
 if {$unloadApps && [info exists env(LOADEDMODULES)]} {
-  foreach app [split $env(LOADEDMODULES) ":"] {
+  foreach app [lreverse [split $env(LOADEDMODULES) ":"]] {
     # Check whether any pgi-dependent module dir contains a module w/this name
     if {[llength [glob -nocomplain /opt/modulefiles/*/.pgi/$app]] > 0} {
       puts stderr "Unloading compiler-dependent module $app"

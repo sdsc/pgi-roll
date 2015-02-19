@@ -2,7 +2,7 @@ PACKAGE     = pgi
 CATEGORY    = compilers
 
 NAME        = sdsc-$(PACKAGE)-modules
-RELEASE     = 4
+RELEASE     = 5
 PKGROOT     = /opt/modulefiles/$(CATEGORY)/$(PACKAGE)
 
 VERSION_SRC = $(REDHAT.ROOT)/src/$(PACKAGE)/version.mk
