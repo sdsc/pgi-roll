@@ -1,0 +1,156 @@
+END USER LICENSE AGREEMENT
+
+PLEASE READ THIS LICENSE CAREFULLY BEFORE USING THE SOFTWARE. BY USING THE
+SOFTWARE, YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS LICENSE. IF YOU DO
+NOT AGREE TO THESE TERMS AND CONDITIONS, DO NOT USE THE SOFTWARE.
+
+1. License. The software accompanying this License (hereinafter "Software"),
+   regardless of the media on which it is distributed, are licensed to you by
+   Advanced Micro Devices, Inc. ("AMD"). You own the medium on which the 
+   Software is recorded, but AMD and AMD's Licensors (referred to collectively 
+   as "AMD") retain title to the Software and related documentation. You may:
+   a) use the Software;
+   b) make a reasonable number of copies necessary for the purposes of this
+      License. You must reproduce on such copy AMD's copyright notice and any 
+      other proprietary legends that were on the original copy of the Software; 
+      and
+   c) distribute and sublicense the Object Code of the AMD runtimes included as
+      part of the Software (libacml.so, libacml_mp.so, libacml_dll,
+      libacml_mp_dll.dll, libacml_mv.so, libacml_mv_dll.dll, libamdocl32.so,
+      libamdocl64.so, amdocl32.dll, and/or amdocl64.dll; collectively, "AMD
+      Runtimes") as incorporated in Your application(s) to customers and end 
+      users (collectively, "Distribution Channel").  Such distribution may be 
+      made through multiple tiers of distribution.  Such distribution must be 
+      subject to an end user license agreement with terms and conditions that 
+      at a minimum are substantially similar to those set forth in Sections 2 
+      and 4 herein and the following: 
+      (a) prohibition on transfer or duplication of the Licensee Software
+          (except for reasonable backup); 
+      (b) prohibitions on reverse engineering, disassembly or de-compilation
+          of Licensee Software; 
+      (c) disclaimer of warranties and limitation of AMD's liability having 
+          terms at least as protective as those set forth in Sections 7 and 8 
+          herein; and 
+      (d) requirement that the end user comply fully with all relevant export 
+          laws and regulations of the United States and other applicable export 
+          and import laws; 
+      (e) AMD is a third party beneficiary of all End User License Agreements.
+
+2. Restrictions. The Software contains copyrighted and patented material, trade
+   secrets and other proprietary material. In order to protect them, and except 
+   as permitted by applicable legislation, you may not:
+   a) decompile, reverse engineer, disassemble or otherwise reduce the Software 
+      to a human-perceivable form;
+   b) modify, network, rent, lend, loan, distribute or create derivative works
+      based upon the Software in whole or in part; or
+   c) transfer or sublicense the Software to another end user or otherwise
+      transfer the Software except as permitted by this License.
+
+3. Termination. This License is effective until terminated. You may terminate
+   this License at any time by destroying the Software, related documentation  
+   and all copies thereof. This License will terminate immediately without 
+   notice from AMD if you fail to comply with any provision of this License. 
+   Upon termination you must destroy the Software, related documentation and 
+   all copies thereof.
+
+4. Government End Users. If you are acquiring the Software on behalf of any
+   unit or agency of the United States Government, the following provisions 
+   apply.  The Government agrees the Software and documentation were developed 
+   at private expense and are provided with "RESTRICTED RIGHTS". Use, 
+   duplication, or disclosure by the Government is subject to restrictions as 
+   set forth in DFARS 227.7202-1(a) and 227.7202-3(a) (1995), DFARS 
+   252.227-7013(c)(1)(ii) (Oct 1988), FAR 12.212(a)(1995), FAR 52.227-19, (June 
+   1987) or FAR 52.227-14(ALT III) (June 1987), as amended from time to time. 
+   In the event that this License, or any part thereof, is deemed inconsistent 
+   with the minimum rights identified in the Restricted Rights provisions, the 
+   minimum rights shall prevail.
+
+5. No Other License. No rights or licenses are granted by AMD under this
+   License, expressly or by implication, with respect to any proprietary
+   information or patent, copyright, trade secret or other intellectual 
+   property right owned or controlled by AMD, except as expressly provided in 
+   this License.
+
+6. Additional Licenses. DISTRIBUTION OR USE OF THE SOFTWARE WITH AN OPERATING
+   SYSTEM MAY REQUIRE ADDITIONAL LICENSES FROM THE OPERATING SYSTEM VENDOR.
+   Additional third party licenses may also be required and you agree that you
+   shall be solely responsible for obtaining such license rights.
+
+7. Disclaimer of Warranty on Software. You expressly acknowledge and agree that
+   use of the Software is at your sole risk. The Software and related
+   documentation are provided "AS IS" and without warranty of any kind and AMD
+   EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, ACCURACY, CONDITION,
+   OWNERSHIP, FITNESS FOR A PARTICULAR PURPOSE, AND/OR OF NONINFRINGEMENT OF 
+   THIRD PARTY INTELLECTUAL PROPERTY RIGHTS, AND THOSE ARISING FROM CUSTOM OR 
+   TRADE OR COURSE OF USAGE. AMD DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED 
+   IN THE SOFTWARE WILL MEET YOUR REQUIREMENTS, OR THAT THE OPERATION OF THE 
+   SOFTWARE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT DEFECTS IN THE 
+   SOFTWARE WILL BE CORRECTED. THE ENTIRE RISK AS TO THE RESULTS AND 
+   PERFORMANCE OF THE SOFTWARE IS ASSUMED BY YOU. FURTHERMORE, AMD DOES NOT 
+   WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS OF THE 
+   USE OF THE SOFTWARE OR RELATED DOCUMENTATION IN TERMS OF THEIR CORRECTNESS, 
+   ACCURACY, RELIABILITY, CURRENTNESS, OR OTHERWISE. NO ORAL OR WRITTEN 
+   INFORMATION OR ADVICE GIVEN BY AMD OR AMD'S AUTHORIZED REPRESENTATIVE SHALL 
+   CREATE A WARRANTY OR IN ANY WAY INCREASE THE SCOPE OF THIS WARRANTY. SHOULD 
+   THE SOFTWARE PROVE DEFECTIVE, YOU (AND NOT AMD OR AMD'S AUTHORIZED 
+   REPRESENTATIVE) ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR 
+   CORRECTION. THE SOFTWARE IS NOT INTENDED FOR USE IN MEDICAL, LIFE SAVING OR 
+   LIFE SUSTAINING APPLICATIONS. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION 
+   OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU.
+
+8. Limitation of Liability. UNDER NO CIRCUMSTANCES INCLUDING NEGLIGENCE, SHALL
+   AMD, OR ITS DIRECTORS, OFFICERS, EMPLOYEES OR AGENTS ("AUTHORIZED
+   REPRESENTATIVES"), BE LIABLE TO YOU FOR ANY PUNITIVE, EXEMPLARY, DIRECT,
+   INCIDENTAL, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES (INCLUDING DAMAGES    
+   FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS 
+   INFORMATION, AND THE LIKE) ARISING OUT OF THE USE, MISUSE OR INABILITY TO 
+   USE THE SOFTWARE OR RELATED DOCUMENTATION, BREACH OR DEFAULT, INCLUDING 
+   THOSE ARISING FROM INFRINGEMENT OR ALLEGED INFRINGEMENT OF ANY PATENT, 
+   TRADEMARK, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT, BY AMD, EVEN IF 
+   AMD OR AMD'S AUTHORIZED REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY 
+   OF SUCH DAMAGES. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OR EXCLUSION 
+   OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE 
+   LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU. AMD will not be liable for: 1) 
+   loss of, or damage to, your records or data; or 2) any damages claimed by 
+   you based on any third party claim. In no event shall AMD's total liability 
+   to you for all damages, losses, and causes of action (whether in contract, 
+   tort (including negligence) or otherwise) exceed the amount paid by you for 
+   the Software.
+
+9. Export Restrictions. You shall adhere to all U.S. and other applicable
+   export laws, including but not limited to the U.S. Export Administration
+   Regulations (EAR), currently found at 15 C.F.R. Sections 730 through 744.
+   Further, pursuant to 15 C.F.R Section 740.6, You hereby certifies that, 
+   except pursuant to a license granted by the United States Department of 
+   Commerce Bureau of Industry and Security or as otherwise permitted pursuant 
+   to a License Exception under the U.S. Export Administration Regulations 
+   ("EAR"), You will not (1) export, re-export or release to a national of a 
+   country in Country Groups D:1 or E:2 any restricted technology, software, or 
+   source code it receives from AMD, or (2) export to Country Groups D:1 or E:2 
+   the direct product of such technology or software, if such foreign produced 
+   direct product is subject to national security controls as identified on the 
+   Commerce Control List (currently found in Supplement 1 to Part 774 of EAR). 
+   For the most current Country Group listings, or for additional information 
+   about the EAR or Recipient's obligations under those regulations, please 
+   refer to the U.S. Bureau of Industry and Security's website at 
+   http://www.bis.doc.gov/. These export requirements shall survive any 
+   expiration or termination of this Agreement.
+
+10. Controlling Law and Severability. This Agreement will be governed by and
+   construed under the laws of the State of California without reference to its
+   conflicts of law principles. The rights and obligations under this Agreement
+   shall not be governed by the United Nations Convention on Contracts or the
+   International Sale of Goods, the application of which is expressly excluded.
+   Each party hereto submits to the jurisdiction of the state and federal 
+   courts of Santa Clara County and the Northern District of California for the 
+   purpose of all legal proceedings arising out of or relating to this 
+   Agreement or the subject matter hereof. Each party waives any objection 
+   which it may have to contest such forum.
+
+11. Complete Agreement. This License constitutes the entire agreement between
+   the parties with respect to the use of the Software and the related
+   documentation, and supersedes all prior or contemporaneous understandings or
+   agreements, written or oral, regarding such subject matter. No amendment to 
+   or modification of this License will be binding unless in writing and signed 
+   by a duly authorized representative of AMD.

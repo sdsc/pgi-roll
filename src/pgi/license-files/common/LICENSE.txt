@@ -47,7 +47,7 @@ SOFTWARE.
     Except as set forth in Section 2B and Section 2C below, any other use of
     the Software is strictly prohibited.
 
-2B) If the Software is any version of the Software other than the “Developer”
+2B) If the Software is any version of the Software other than the "Developer"�
     version of the Software, this Section 2B, and not Section 2C below, shall
     apply: You may distribute an end-user application that You build with the
     Software that provides significant functionality distinct from that
@@ -293,15 +293,16 @@ SOFTWARE.
 
 12) Government Use 
 
-    The Software is a "commercial item," as that term is defined at 48
-    C.F.R. 2.101 (OCT 1995), consisting of "commercial computer software"
-    and "commercial computer software documentation," as such terms are
-    used in 48 C.F.R. 12.212 (SEPT 1995) and is provided to the U.S.
-    Government only as a commercial end item. Consistent with 48 C.F.R.
-    12.212 and 48 C.F.R. 227.7202-1 through 227.7202-4 (JUNE 1995), all
-    U.S. Government licensees and end users acquire the Software with
-    only those rights set forth herein. Contractor/manufacturer is NVIDIA
-    Corporation, 2701 San Tomas Expressway, Santa Clara, CA 95050.
+    The Software is commercial computer software provided with RESTRICTED
+    RIGHTS. Use, duplication or disclosure of the Software by the U.S.
+    Government or a U.S. Government subcontractor is subject to the
+    restrictions set forth in the Agreement under which the Software was
+    obtained pursuant to DFARS 227.7202-1(a) and 227.7202-3(a) (1995), DFARS
+    252.227-7013(c)(1)(ii) (Oct 1988), FAR 12.212(a)(1995), FAR 52.227-19,
+    (June 1987) or FAR 52.227-14(ALT III) (June 1987), as applicable.
+    Contractor/manufacturer is NVIDIA, 2701 San Tomas Expressway, Santa Clara,
+    CA 95050. Use of the Software by the Government constitutes acknowledgment
+    of NVIDIA's proprietary rights therein.
 
 13) Termination 
 
@@ -316,7 +317,7 @@ SOFTWARE.
 
     In the event this ELA is terminated for any reason, the following
     provisions shall survive termination and shall remain in full force
-    and effect: 1, 5, 6, 7, 8, 9, 10, 12, and 13.
+    and effect: 1, 5, 6, 7, 8, 9, 10, 12, 13 and 17.
 
 15) No Assignment
 
@@ -341,10 +342,16 @@ SOFTWARE.
     that provision shall be enforced to the maximum extent possible and the
     remainder of this ELA shall continue in full force and effect.
 
+17) Privacy Notice
+
+    NVIDIA collects and uses Personal Information in accord with NVIDIA's
+    privacy policy, which can be found at: 
+    http://www.nvidia.com/object/privacy_policy.html.
+
 YOU ACKNOWLEDGE THAT YOU HAVE READ THIS ELA AND AGREE TO BE BOUND BY ITS TERMS.
 YOU FURTHER AGREE THAT IT IS THE COMPLETE AND EXCLUSIVE STATEMENT OF AGREEMENT
 BETWEEN YOU AND NVIDIA AND THAT IT SUPERSEDES ANY PRIOR AGREEMENT, ORAL OR
 WRITTEN, ANY PROPOSAL, AND ANY OTHER COMMUNICATIONS BETWEEN YOU AND NVIDIA
 RELATING TO THE SUBJECT MATTER OF THIS ELA.
 
-Rev 2014-Jan
+Rev 2015-Jan
