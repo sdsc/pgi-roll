@@ -1,5 +1,5 @@
 NAME           = sdsc-pgi
-VERSION        = 14.9
+VERSION        = 15.4
 RELEASE        = 0
 PKGROOT        = /opt/pgi
 
