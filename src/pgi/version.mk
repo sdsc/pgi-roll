@@ -1,6 +1,6 @@
 NAME           = sdsc-pgi
-VERSION        = 15.4
-RELEASE        = 1
+VERSION        = 15.7
+RELEASE        = 0
 PKGROOT        = /opt/pgi
 
 SRC_SUBDIR     = pgi
