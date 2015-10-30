@@ -74,6 +74,10 @@ LICENSE: $(SRC_DIRS)
 	$(CHECK_LICENSE_FILES)
 	echo STMicroelectronics > $@
 
+$(SOURCE_DIR): $(SOURCE_PKG)
+	mkdir $@
+	cd $@ && tar zxvf ../$(SOURCE_PKG)
+
 build: $(SRC_DIRS)
 
 install::
