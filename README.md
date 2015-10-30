@@ -15,7 +15,13 @@ For more information about PGI Compilers please visit the official web pages of
 To build/install this roll you must have root access to a Rocks development
 machine (e.g., a frontend or development appliance).
 
-In addition, non-SDSC users must also place a `tar.gz` bundle of the PGI installation source provided by The Portland Group in the `src/pgi` directory. That file should be named to match the pattern listed in `src/pgi/version.mk` and the `version.mk` file should be edited appropriately.
+In addition, non-SDSC users must also place a `tar.gz` bundle of the PGI
+installation source provided by The Portland Group in the `src/pgi` directory.
+That file should be named to match the pattern listed in `src/pgi/version.mk`
+and the `version.mk` file should be edited appropriately.
+Unless you are building a different compiler version than is expected by the
+roll sources, a simple gzip of the tar file downloaded from the Portland Group
+website should fulfill this requirement.
 
 
 ## Dependencies
