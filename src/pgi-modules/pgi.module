@@ -34,5 +34,5 @@ foreach path [glob -nocomplain /opt/modulefiles/*/.pgi] {
 # Compiler environment modifications
 setenv PGIHOME /opt/pgi/linux86-64/VERSION
 prepend-path PATH "/opt/pgi/linux86-64/VERSION/bin"
-prepend-path LD_LIBRARY_PATH "/opt/pgi/linux86-64/VERSION/libso"
+prepend-path LD_LIBRARY_PATH "/opt/pgi/linux86-64/VERSION/lib"
 prepend-path MANPATH "/opt/pgi/linux86-64/VERSION/man"
