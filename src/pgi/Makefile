@@ -65,6 +65,8 @@ include $(SDSCDEVEL)/Rules.mk
 
 $(NAME).spec: DESCRIPTION LICENSE
 
+.PHONEY: install
+
 DESCRIPTION:
 	( \
 	  $(DESCRIBE_PKG) \
