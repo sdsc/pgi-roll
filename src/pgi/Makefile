@@ -65,8 +65,6 @@ include $(SDSCDEVEL)/Rules.mk
 
 $(NAME).spec: DESCRIPTION LICENSE
 
-.PHONEY: install
-
 DESCRIPTION:
 	( \
 	  $(DESCRIBE_PKG) \
@@ -86,6 +84,7 @@ install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	$(PKGROOT_BIND_MOUNT)
 	( \
+          rm -f install; \
 	  cd $(SOURCE_DIR); \
 	  export PGI_SILENT=true;  \
           export PGI_ACCEPT_EULA=accept; \
