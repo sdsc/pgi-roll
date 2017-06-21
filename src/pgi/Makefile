@@ -79,12 +79,12 @@ $(SOURCE_DIR): $(SOURCE_PKG)
 	cd $@ && tar zxvf ../$(SOURCE_PKG)
 
 build: $(SRC_DIRS)
+	rm -f install
 
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	$(PKGROOT_BIND_MOUNT)
 	( \
-          rm -f install; \
 	  cd $(SOURCE_DIR); \
 	  PGI_SILENT=true PGI_ACCEPT_EULA=accept PGI_INSTALL_NVIDIA=true PGI_INSTALL_DIR=$(PKGROOT) \
 	  ./install $(VERSION) \
