@@ -59,7 +59,7 @@
 REDHAT.ROOT = $(CURDIR)/../../
 RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 
-RPMS = 2
+RPMS = 3
 RPM_TO_BUILD = 1
 
 -include $(ROCKSROOT)/etc/Rules.mk
@@ -93,6 +93,7 @@ build: $(SRC_DIRS)
           cp -r $(PKGROOT) $(PGI_CACHE) \
 	)
 	rm -rf $(PKGROOT)
+	@echo "::: Package $(NAME) build complete :::"
 
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
@@ -100,13 +101,14 @@ install::
           cd $(PGI_CACHE); \
           find . -type f | sort | perl -e 'for(my $$i=0;<>;$$i++){chomp and `/bin/cp --parents "$$_" $(ROOT)/$(PKGROOT)/` if $$i%$(RPMS)+1 == $(RPM_TO_BUILD);}'; \
         )
-        if test "$(RPM_TO_BUILD)" = "1"; then \
+	if test "$(RPM_TO_BUILD)" = "1"; then \
           for rpm in `seq 2 $(RPMS)`; do \
             echo $(MAKE) NAME=$(NAME)_$$rpm RPM_TO_BUILD=$$rpm rpm; \
             $(MAKE) NAME=$(NAME)_$$rpm RPM_TO_BUILD=$$rpm rpm; \
           done; \
           $(INSTALL_LICENSE_FILES); \
         fi
+	@echo "::: Package $(NAME) install complete :::"
 
 clean::
 	rm -rf $(SOURCE_DIR) install *.html DESCRIPTION LICENSE
