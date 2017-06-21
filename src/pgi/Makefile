@@ -85,7 +85,10 @@ install::
 	$(PKGROOT_BIND_MOUNT)
 	( \
 	  cd $(SOURCE_DIR); \
-	  PGI_SILENT=true PGI_ACCEPT_EULA=accept PGI_INSTALL_NVIDIA=true PGI_INSTALL_DIR=$(PKGROOT) \
+	  export PGI_SILENT=true;  \
+          export PGI_ACCEPT_EULA=accept; \
+          export PGI_INSTALL_NVIDIA=true; \
+          export PGI_INSTALL_DIR=$(PKGROOT); \
 	  ./install $(VERSION) \
 	)
 	$(PKGROOT_BIND_UMOUNT)
