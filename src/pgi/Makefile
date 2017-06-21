@@ -59,9 +59,14 @@
 REDHAT.ROOT = $(CURDIR)/../../
 RPM.EXTRAS = %define __os_install_post /usr/lib/rpm/brp-compress
 
+RPMS = 2
+RPMS_TO_BUILD = 1
+
 -include $(ROCKSROOT)/etc/Rules.mk
 include $(SDSCDEVEL)/Pull.mk
 include $(SDSCDEVEL)/Rules.mk
+
+PGI_CACHE = $(REDHAT.ROOT)/cache/build-pgi
 
 $(NAME).spec: DESCRIPTION LICENSE
 
@@ -80,17 +85,28 @@ $(SOURCE_DIR): $(SOURCE_PKG)
 
 build: $(SRC_DIRS)
 	rm -f install
-
-install::
-	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
-	$(PKGROOT_BIND_MOUNT)
+	mkdir -p $(PGI_CACHE)
 	( \
 	  cd $(SOURCE_DIR); \
 	  PGI_SILENT=true PGI_ACCEPT_EULA=accept PGI_INSTALL_NVIDIA=true PGI_INSTALL_DIR=$(PKGROOT) \
-	  ./install $(VERSION) \
+	  ./install $(VERSION); \
+          cp -r $(PKGROOT) $(PGI_CACHE) \
 	)
-	$(PKGROOT_BIND_UMOUNT)
-	$(INSTALL_LICENSE_FILES)
+	rm -rf $(PKGROOT)
+
+install::
+	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
+	( \
+          cd $(PGI_CACHE); \
+          find . -type f | sort | perl -e 'for(my $$i=0;<>;$$i++){chomp and `/bin/cp --parents "$$_" $(ROOT)/$(PKGROOT)/` if $$i%$(RPMS)+1 == $(RPM_TO_BUILD);}'; \
+        )
+        if test "$(RPM_TO_BUILD)" = "1"; then \
+          for rpm in `seq 2 $(RPMS)`; do \
+            echo $(MAKE) NAME=$(NAME)_$$rpm RPM_TO_BUILD=$$rpm rpm; \
+            $(MAKE) NAME=$(NAME)_$$rpm RPM_TO_BUILD=$$rpm rpm; \
+          done; \
+          $(INSTALL_LICENSE_FILES); \
+        fi
 
 clean::
 	rm -rf $(SOURCE_DIR) install *.html DESCRIPTION LICENSE
