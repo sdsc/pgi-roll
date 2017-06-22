@@ -100,7 +100,7 @@ build: $(SRC_DIRS)
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	( \
-          cd $(PGI_CACHE); \
+          cd $(PGI_CACHE)/pgi; \
           find . -type f | sort | perl -e 'for(my $$i=0;<>;$$i++){chomp and `/bin/cp --parents "$$_" $(ROOT)/$(PKGROOT)/` if $$i%$(RPMS)+1 == $(RPM_TO_BUILD);}'; \
         )
 	if test "$(RPM_TO_BUILD)" = "1"; then \
