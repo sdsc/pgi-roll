@@ -87,10 +87,12 @@ build: $(SRC_DIRS)
 	rm -f install
 	mkdir -p $(PGI_CACHE)
 	( \
-	  cd $(SOURCE_DIR); \
-	  PGI_SILENT=true PGI_ACCEPT_EULA=accept PGI_INSTALL_NVIDIA=true PGI_INSTALL_DIR=$(PKGROOT) \
-	  ./install $(VERSION); \
-          cp -r $(PKGROOT) $(PGI_CACHE) \
+          if test $(RPM_TO_BUILD) == "1"; then \
+	    cd $(SOURCE_DIR); \
+	    PGI_SILENT=true PGI_ACCEPT_EULA=accept PGI_INSTALL_NVIDIA=true PGI_INSTALL_DIR=$(PKGROOT) \
+	    ./install $(VERSION); \
+            cp -r $(PKGROOT) $(PGI_CACHE); \
+          fi \
 	)
 	rm -rf $(PKGROOT)
 	@echo "::: Package $(NAME) build complete :::"
