@@ -57,8 +57,16 @@
 # $Log$
 
 -include $(ROLLSROOT)/etc/Rolls.mk
+RPMS=3
 
-default:	roll
+default:
+	cp nodes/pgi-common.xml.in nodes/pgi-common.xml
+	for rpm in `seq 2 $(RPMS)`; do \
+          perl -pi -e 'print and s/RPM/'$${rpm}'/g if m/RPM/' nodes/pgi-common.xml; \
+        done; \
+        perl -pi -e '$$_ = "" if m/RPM/' nodes/pgi-common.xml; \
+	$(MAKE) RPMS=$(RPMS) roll
+
 
 clean::
 	rm -f _arch bootstrap.py

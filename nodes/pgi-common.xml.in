@@ -13,6 +13,7 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 </copyright>
 
 <package>sdsc-pgi</package>
+<package>sdsc-pgi_RPM</package>
 <package>sdsc-pgi-modules</package>
 <package>sdsc-pgi-roll-test</package>
 
