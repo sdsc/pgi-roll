@@ -30,6 +30,49 @@ print OUT <<END;
 END
 close(OUT);
 
+open(OUT, ">$TESTFILE.cu");
+print OUT <<END;
+#include <stdio.h>
+ 
+const int N = 16; 
+const int blocksize = 16; 
+ 
+__global__ 
+void hello(char *a, int *b) 
+{
+     a[threadIdx.x] += b[threadIdx.x];
+}
+ 
+int main()
+{
+     char a[N] = "Hello \0\0\0\0\0\0";
+     int b[N] = {15, 10, 6, 0, -11, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+ 
+     char *ad;
+     int *bd;
+     const int csize = N*sizeof(char);
+     const int isize = N*sizeof(int);
+ 
+     printf("%s", a);
+ 
+     cudaMalloc( (void**)&ad, csize ); 
+     cudaMalloc( (void**)&bd, isize ); 
+     cudaMemcpy( ad, a, csize, cudaMemcpyHostToDevice ); 
+     cudaMemcpy( bd, b, isize, cudaMemcpyHostToDevice ); 
+     
+     dim3 dimBlock( blocksize, 1 );
+     dim3 dimGrid( 1, 1 );
+     hello<<<dimGrid, dimBlock>>>(ad, bd);
+     cudaMemcpy( a, ad, csize, cudaMemcpyDeviceToHost ); 
+     cudaFree( ad );
+     cudaFree( bd );
+     
+     printf("%s\\n", a);
+     return EXIT_SUCCESS;
+}
+END
+close(OUT);
+
 # pgi-common.xml
 if($appliance =~ /$installedOnAppliancesPattern/) {
   ok($isInstalled, 'pgi compilers installed');
@@ -53,6 +96,17 @@ SKIP: {
 
   $output = `module load pgi; man pgcc 2>&1`;
   ok($output =~ /Portland/, 'man works for pgi');
+
+  SKIP: {
+    skip 'CUDA_VISIBLE_DEVICES undef', 1
+     if ! defined($ENV{'CUDA_VISIBLE_DEVICES'});
+     $output = `module load pgi cuda/8.0; pgCC -I/opt/pgi/linux86-64/2017/cuda/8.0/include -Mcudax86 -o $TESTFILE $TESTFILE.cu 2>&1`;
+     ok($? == 0, 'pgi CUDA/C++ compiler works');
+     $output = `module load pgi cuda/8.0; ./$TESTFILE 2>&1`;
+     ok($? == 0, 'compiled CUDA/C++  program runs');
+     like($output, qr/Hello World!/, 'compile CUDA/C++ program correct output');
+  }
+
   
   `/bin/ls /opt/modulefiles/compilers/pgi/[0-9]* 2>&1`;
   ok($? == 0, 'pgi module installed');
@@ -63,4 +117,3 @@ SKIP: {
 
 }
 
-`rm -f $TESTFILE*`;
