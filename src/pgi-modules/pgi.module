@@ -18,8 +18,12 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
 }
 if {$unloadApps && [info exists env(LOADEDMODULES)]} {
   foreach app [lreverse [split $env(LOADEDMODULES) ":"]] {
-    # Check whether any pgi-dependent module dir contains a module w/this name
-    if {[llength [glob -nocomplain /opt/modulefiles/*/.pgi/$app]] > 0} {
+    if {[string first "pgi/" $app] == 0} {
+      continue
+    }
+    # Check whether this module references a compiler-specific subdir
+    set moduleEffects [exec bash -c "module display $app" 2>@1]
+    if {[string first "/pgi" $moduleEffects] >= 0} {
       puts stderr "Unloading compiler-dependent module $app"
       module unload [lindex [split $app "/"] 0]
     }
