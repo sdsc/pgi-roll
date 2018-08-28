@@ -100,9 +100,9 @@ SKIP: {
   SKIP: {
     skip 'CUDA_VISIBLE_DEVICES undef', 1
      if ! defined($ENV{'CUDA_VISIBLE_DEVICES'});
-     $output = `module load pgi cuda/8.0; pgc++  -Mcudax86 -o $TESTFILE $TESTFILE.cu 2>&1`;
+     $output = `module load pgi cuda; pgc++  -Mcudax86 -o $TESTFILE $TESTFILE.cu 2>&1`;
      ok($? == 0, 'pgi CUDA/C++ compiler works');
-     $output = `module load pgi cuda/8.0; ./$TESTFILE 2>&1`;
+     $output = `module load pgi cuda; ./$TESTFILE 2>&1`;
      ok($? == 0, 'compiled CUDA/C++  program runs');
      like($output, qr/Hello World!/, 'compile CUDA/C++ program correct output');
   }
