@@ -17,6 +17,13 @@ if {[module-info mode switch1] || [module-info mode switch3]} {
   set unloadApps 0
 }
 if {$unloadApps && [info exists env(LOADEDMODULES)]} {
+# Check for intelmpi which doesn't have "pgi/" in it's path
+  if { [ info exists env(I_MPI_CC) ] } {
+     if { [ string equal $env(I_MPI_CC) pgcc ] } {
+       puts stderr "Unloading compiler-dependent module intelmpi"
+       module unload intelmpi
+     }
+   }
   foreach app [lreverse [split $env(LOADEDMODULES) ":"]] {
     if {[string first "pgi/" $app] == 0} {
       continue
