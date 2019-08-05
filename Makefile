@@ -56,7 +56,7 @@
 # $Log$
 
 -include $(ROLLSROOT)/etc/Rolls.mk
-RPMS=3
+RPMS=6
 
 default:
 	cp nodes/pgi-common.xml.in nodes/pgi-common.xml

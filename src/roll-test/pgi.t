@@ -32,44 +32,56 @@ close(OUT);
 
 open(OUT, ">$TESTFILE.cu");
 print OUT <<END;
-#include <stdio.h>
- 
-const int N = 16; 
-const int blocksize = 16; 
- 
-__global__ 
-void hello(char *a, int *b) 
-{
-     a[threadIdx.x] += b[threadIdx.x];
-}
- 
-int main()
-{
-     char a[N] = "Hello \0\0\0\0\0\0";
-     int b[N] = {15, 10, 6, 0, -11, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
- 
-     char *ad;
-     int *bd;
-     const int csize = N*sizeof(char);
-     const int isize = N*sizeof(int);
- 
-     printf("%s", a);
- 
-     cudaMalloc( (void**)&ad, csize ); 
-     cudaMalloc( (void**)&bd, isize ); 
-     cudaMemcpy( ad, a, csize, cudaMemcpyHostToDevice ); 
-     cudaMemcpy( bd, b, isize, cudaMemcpyHostToDevice ); 
-     
-     dim3 dimBlock( blocksize, 1 );
-     dim3 dimGrid( 1, 1 );
-     hello<<<dimGrid, dimBlock>>>(ad, bd);
-     cudaMemcpy( a, ad, csize, cudaMemcpyDeviceToHost ); 
-     cudaFree( ad );
-     cudaFree( bd );
-     
-     printf("%s\\n", a);
-     return EXIT_SUCCESS;
-}
+!
+!     Copyright (c) 2017, NVIDIA CORPORATION.  All rights reserved.
+!
+! NVIDIA CORPORATION and its licensors retain all intellectual property
+! and proprietary rights in and to this software, related documentation
+! and any modifications thereto.
+!
+!
+!    These example codes are a portion of the code samples from the companion
+!    website to the book "CUDA Fortran for Scientists and Engineers":
+!
+! http://store.elsevier.com/product.jsp?isbn=9780124169708
+!
+module simpleOps_m
+contains
+  attributes(global) subroutine increment(a, b)
+    implicit none
+    integer, intent(inout) :: a(:)
+    integer, value :: b
+    integer :: i
+
+    i = threadIdx%x
+    a(i) = a(i)+b
+
+  end subroutine increment
+end module simpleOps_m
+
+
+program incrementTest
+  use cudafor
+  use simpleOps_m
+  implicit none
+  integer, parameter :: n = 256
+  integer :: a(n), b
+  integer, device :: a_d(n)
+
+  a = 1
+  b = 3
+
+  a_d = a
+  call increment<<<1,n>>>(a_d, b)
+  a = a_d
+
+  if (any(a /= 4)) then
+     write(*,*) '**** Program Failed ****'
+  else
+     write(*,*) 'Program Passed'
+  endif
+end program incrementTest
+
 END
 close(OUT);
 
@@ -95,14 +107,14 @@ SKIP: {
   like($output, qr/Hello world/, 'compile FORTRAN program correct output');
 
   $output = `module load pgi; man pgcc 2>&1`;
-  ok($output =~ /Portland/, 'man works for pgi');
+  ok($output =~ /PGI ANSI/, 'man works for pgi');
 
   SKIP: {
     skip 'CUDA_VISIBLE_DEVICES undef', 1
      if ! defined($ENV{'CUDA_VISIBLE_DEVICES'});
-     $output = `module load pgi cuda; pgc++  -Mcudax86 -o $TESTFILE $TESTFILE.cu 2>&1`;
+     $output = `module load pgi CUDAVERSION; pgc++  -Mcudax86 -o $TESTFILE $TESTFILE.cu 2>&1`;
      ok($? == 0, 'pgi CUDA/C++ compiler works');
-     $output = `module load pgi cuda; ./$TESTFILE 2>&1`;
+     $output = `module load pgi CUDAVER; ./$TESTFILE 2>&1`;
      ok($? == 0, 'compiled CUDA/C++  program runs');
      like($output, qr/Hello World!/, 'compile CUDA/C++ program correct output');
   }
