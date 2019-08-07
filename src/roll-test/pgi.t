@@ -30,7 +30,7 @@ print OUT <<END;
 END
 close(OUT);
 
-open(OUT, ">$TESTFILE.cu");
+open(OUT, ">$TESTFILE.cuf");
 print OUT <<END;
 !
 !     Copyright (c) 2017, NVIDIA CORPORATION.  All rights reserved.
@@ -112,11 +112,11 @@ SKIP: {
   SKIP: {
     skip 'CUDA_VISIBLE_DEVICES undef', 1
      if ! defined($ENV{'CUDA_VISIBLE_DEVICES'});
-     $output = `module load pgi CUDAVERSION; pgc++  -Mcudax86 -o $TESTFILE $TESTFILE.cu 2>&1`;
-     ok($? == 0, 'pgi CUDA/C++ compiler works');
-     $output = `module load pgi CUDAVER; ./$TESTFILE 2>&1`;
-     ok($? == 0, 'compiled CUDA/C++  program runs');
-     like($output, qr/Hello World!/, 'compile CUDA/C++ program correct output');
+     $output = `module load pgi; pgf90 -O2 -o $TESTFILE $TESTFILE.cuf 2>&1`;
+     ok($? == 0, 'pgi CUDA/FORTRAN compiler works');
+     $output = `module load pgi ; ./$TESTFILE 2>&1`;
+     ok($? == 0, 'compiled CUDA/FORTRAN  program runs');
+     like($output, qr/Program Passed/, 'compile CUDA/Fortran program correct output');
   }
 
   
