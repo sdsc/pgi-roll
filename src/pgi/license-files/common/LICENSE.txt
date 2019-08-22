@@ -4,7 +4,7 @@ NOTICE: PLEASE READ THIS DOCUMENT CAREFULLY BEFORE DOWNLOADING, COPYING OR
 USING THE LICENSED SOFTWARE. THIS END-USER LICENSE AGREEMENT ("ELA") IS A
 LEGAL AGREEMENT BETWEEN YOU, THE LICENSEE (A SINGLE PERSON, INSTITUTION, OR
 LEGAL ENTITY) ("YOU"), AND NVIDIA CORPORATION, A DELAWARE CORPORATION HAVING
-ITS PRINCIPAL PLACE OF BUSINESS AT 2701 SAN TOMAS EXPRESSWAY, SANTA CLARA CA
+ITS PRINCIPAL PLACE OF BUSINESS AT 2788 SAN TOMAS EXPRESSWAY, SANTA CLARA CA
 AND ITS SUBSIDIARIES ("NVIDIA") FOR THE LICENSED SOFTWARE, ASSOCIATED MEDIA,
 PRINTED MATERIAL, ELECTRONIC DOCUMENTATION OR ANY PORTION THEREOF ("SOFTWARE").
 NVIDIA IS WILLING TO LICENSE THE SOFTWARE TO YOU ONLY UPON THE CONDITION THAT
@@ -16,112 +16,126 @@ SOFTWARE.
 
 1)  Ownership
 
-    The Software distributed and licensed to You hereunder, including, if
-    and when provided, any updates furnished to You for free or for
+    The Software distributed and licensed to you hereunder, including, if
+    and when provided, any updates furnished to you for free or for
     additional fees, is proprietary to NVIDIA or its licensors (NVIDIA and
-    licensors hereafter referred to as "Licensor"). The Software is not sold,
-    and instead is only licensed for Your use, strictly in accordance with
-    this Agreement.  The Software is protected by copyright laws and 
-    international treaty provisions.  The Licensors retain all right, title
-    and interest to, and ownership of, the Software, including the copy 
-    provided herein, and reserve all rights not expressly granted in this ELA.
+    licensors hereafter referred to as "Licensors"). The Software is not sold,
+    and instead is only licensed for your use, strictly in accordance with
+    this ELA.  The Software is protected by copyright laws and international
+    treaty provisions.
+    (i)     The Licensors retain all right, title and interest to, and
+            ownership of, the Software and modifications, including their
+            respective intellectual property rights, subject to your rights
+            under subsection 1(ii) below and the terms in Section 6.  All
+            rights not expressly granted in this ELA are reserved.
+    (ii)    You retain all right, title and interest to, and ownership of, your
+            applications and your derivative works of the sample source code
+            delivered, including their respective intellectual property rights,
+            subject to Licensor's rights as described in subsection 1(i) above.
 
-2)  Granting of License
+2)  License
 
-2A) Except as set forth in Sections 3, 4 and 5 below, under the terms and
-    conditions of this ELA, You are hereby granted a limited, revocable,
-    nontransferable, and nonexclusive license, without the right to sublicense
-    or distribute, to use the Software subject to the restrictions and other
-    terms within. That use must be
-    (i)     only by You,
-    (ii)    only on a computer system running a specific operating system on
-            which the Software is designed to run and for which portions of
-            the Software and subsequent components in the compilation process
-            are intended to produce an executable image ("Target Systems")
-            for which the corresponding product license has been lawfully
-            entered into,
-    (iii)   only on the network(s) and only by the number of users for 
-            which the corresponding product license has been lawfully entered
-            into,
-    (iv)    only to utilize no more than the maximum number of CPUs, or the
-            maximum number of processes, for which the corresponding product
-            license has been lawfully entered into, and
+2A) Grant
 
-    Except as set forth in Section 2B and Section 2C below, any other use of
-    the Software is strictly prohibited.
+    Subject to the terms and conditions of this ELA, NVIDIA hereby grants you a
+    limited, non-transferable, and non-exclusive license, without the right to
+    sublicense or distribute (except as expressly provided in this ELA), to:
+    (i)     Install and use the Software:
+            (a) only on computer system(s) running a specific operating system
+                on which the Software is designed to run and for which the 
+                Software is intended to produce an executable image ("Target
+                Systems"), and
+            (b) only by the number of concurrent users for which your 
+                corresponding product configuration has been licensed,
+    (ii)    Modify and create derivative works of sample source code delivered
+            in the Software,
+    (iii)   Distribute the below described distributable Software in an
+            application that you build with the Software that provides material
+            additional functionality beyond that included with the Software
+            ("End-User Application") to users within your organization as well
+            as third party users outside your organization ("Sublicensees")
+            only for use on Target Systems, subject to the Distribution
+            Requirements indicated in this ELA.  The distributable Software is
+            as follows:
+            (a) Software compiled or linked into, and inseverable from, your
+                End-User Application, or
+            (b) files contained or listed in folders or directories whose names
+                begin with "REDIST" within the Software installation ("Run-Time
+                Files") that are required by, and bundled with, your End-User
+                Application.
 
-2B) If the Software is any version of the Software other than the "Developer"
-    version of the Software, this Section 2B, and not Section 2C below, shall
-    apply: You may distribute an end-user application that You build with the
-    Software that provides significant functionality distinct from that
-    included with the Software ("End-User Application") to users within Your
-    organization as well as third party users outside Your organization
-    ("Sublicensees") for only such uses and/or Target Systems for which the
-    Software was designed and intended. You agree that any sublicense shall
-    not relieve You from Your obligations under this ELA.  The Software
-    includes the run-time files, libraries and executables ("Run-Time Files")
-    that are bound into Your application by the linker or otherwise required
-    by Your application.  You may also distribute separate dynamically-linked
-    or executable Run-Time Files required during the execution of Your End-User
-    Application.  Whenever an End-User Application is used internally within
-    Your organization or by outside third parties, You shall contractually
-    require that all Sublicensees: (1) provide written or clickwrap assent to
-    the license terms under a written, legally enforceable agreement that has
-    the effect of protecting the Software and the rights of NVIDIA under terms
-    no less restrictive than this Agreement; and (2) abide by the following
-    restrictions:
-    (i)     they shall not use the "PGI", "The Portland Group", or
-            "NVIDIA", name, logo, or trademarks in marketing the End-User 
-            Application without prior written permission from NVIDIA,
-    (ii)    they will maintain a valid copyright on the End-User
-            Application,
-    (iii)   they are prohibited from modifying, adapting, translating,
-            reverse engineering, de-compiling, disassembling, or creating 
-            derivative works, in whole or in part, based on the Software, 
-            nor may they attempt in any manner to obtain the source code,
-    (iv)    they disclaim any and all warranties on behalf of NVIDIA and
-            other applicable licensors,
-    (v)     they disclaim, to the maximum extent permitted by law, NVIDIA's,
-            its affiliated companies and its licensors' liability for all
-            damages, direct or indirect, incidental or consequential, that
-            may arise from any use of the Software,
-    (vi)    they agree not to export the Software, directly or indirectly, 
-            in violation of U.S. export control laws or any export or 
-            import regulations in other countries,
-    (vii)   they will, without limitation, indemnify, hold harmless, and
-            defend NVIDIA and other applicable Licensors and their 
-            respective affiliates and suppliers from and against any and 
-            all claims, lawsuits, costs, and expenses, including attorney's 
-            fees, that arise or result from their use or distribution of 
-            the End-User Application, and
-    (viii)  they shall strictly prohibit the further distribution of the 
-            Run-Time Files by the user of the End-User Application. 
-            Notwithstanding the above, the only Run-Time Files that may 
-            be distributed as noted in this Section 2B are in the folders 
-            or directories whose names begin with "REDIST".
+2B) Distribution Requirements
 
-2C) If the Software is a "Developer" version of the Software, so identified,
-    this Section 2C, and not Section 2B above, shall apply: You may only use an
-    End-User Application on the same computer system on which You installed the
-    Software and compiled such End-User Application.  You do not have any
-    rights to distribute, deploy, or otherwise transfer the End-User
-    Application to any other computer system, over a network, or to
-    Sublicensees.  You may not allow anyone other than You to use the End-User
-    Application.
+    For Software versions that are not "Pre-Release" versions as defined in
+    Section 2C below, the following shall apply:
+
+    You may exercise the distribution license grant above and you shall
+    contractually require that all Sublicensees assent to terms under a 
+    written, legally enforceable agreement that has the effect of protecting
+    the Software and intellectual property rights of Licensors under terms no
+    less restrictive than this ELA, including that both you and your
+    Sublicensees:
+    (i)     shall not use the "NVIDIA", "PGI", "PGI Compilers & Tools", or
+            "The Portland Group", name, logo, or trademarks in marketing any
+            End-User Application without prior written permission from NVIDIA,
+            except for identifying NVIDIA as the Software licensor where
+            appropriate,
+    (ii)    shall maintain and reproduce a valid copyright on any Software in
+            the End-User Application,
+    (iii)   shall not modify or create derivative works, in whole or in part,
+            based on the Software, except as expressly authorized in this ELA, 
+    (iv)    shall not reverse engineer, de-compile, or disassemble the
+            Software, or attempt in any manner to obtain the source code,
+    (v)     shall disclaim any and all warranties on behalf of Licensors,
+    (vi)    shall disclaim, to the maximum extent permitted by law, Licensors'
+            and their respective affiliates' liability for all damages, direct
+            or indirect, incidental or consequential, that may arise from any
+            use of the Software,
+    (vii)   shall not export the Software, directly or indirectly, in violation
+            of U.S. export control laws or any export or import regulations in
+            other countries,
+    (viii)  shall strictly prohibit the further distribution of the Run-Time
+            Files by users of an End-User Application, and
+    (ix)    shall include the following notice in modifications and derivative
+            works of sample source code distributed: "This software contains
+            source code provided by NVIDIA Corporation."
+
+2C) Pre-Release Software
+
+    Software versions identified as alpha, beta, preview or otherwise as
+    "Pre-Release", may not be fully functional, may contain errors or design
+    flaws, and may have reduced or different security, privacy, accessibility,
+    availability, and reliability standards relative to commercial versions of
+    NVIDIA software and materials. Use of a Pre-Release version may result in
+    unexpected results, loss of data, project delays or other unpredictable
+    damage or loss.
+
+    You may use a Pre-Release version internally, at your own risk,
+    understanding that Pre-Release versions are not intended for distribution
+    or for use in production or business-critical systems.
+
+    Only you may use an application compiled with a Pre-Release version. You do
+    not have any rights to distribute or otherwise transfer an application
+    compiled with a Pre-Release version.
+
+    NVIDIA may choose not to make available a commercial version of any
+    Pre-Release Software. NVIDIA may also choose to abandon development and
+    terminate the availability of a Pre-Release version at any time without
+    liability.
 
 3)  Software from Microsoft
     
-    You acknowledge that as part of the Software You may receive Run-Time
+    You acknowledge that as part of the Software you may receive Run-Time
     Files in the form of Microsoft Foundation Classes ("MFCs"), Active
     Template Libraries ("ATLs"), and/or "C" Runtime files ("CRTs") in
     binary form only ("Microsoft Distributable Code"). Notwithstanding
-    any other provision of this ELA, You acknowledge and agree
-    (A)     that You have a limited right to use the Microsoft Distributable
+    any other provision of this ELA, you acknowledge and agree:
+    (A)     that you have a limited right to use the Microsoft Distributable
             Code to design, develop, or test for use with the Software only,
-    (B)     that You or Your end-users of the Microsoft Distributable Code
+    (B)     that you or your end-users of the Microsoft Distributable Code
             may only use it to create programs that run natively on
             Microsoft platforms, and
-    (C)     to the following restrictions: You and Your end-users:
+    (C)     to the following restrictions: you and your end-users:
             (i)     will not alter any copyright, trademark, patent, or other
                     legal notice or disclaimer in the Microsoft Distributable
                     Code,
@@ -129,7 +143,7 @@ SOFTWARE.
                     platform other than a Microsoft platform, and
             (iii)   will not include Microsoft Distributable Code in
                     malicious, deceptive, or unlawful programs.
-    Further, You will require end users of the Microsoft Distributable
+    Further, you will require end users of the Microsoft Distributable
     Code to agree to terms at least as protective as this ELA.
 
 4)  Software from Oracle America, Inc.
@@ -137,7 +151,7 @@ SOFTWARE.
     You acknowledge that as part of the Software you are receiving access
     to Java(tm) 2 Runtime Environment (J2RE), version 1.4.2 or subsequent
     versions ("Java Code"). Notwithstanding any other provision of this
-    ELA, You are hereby granted a limited, revocable, nontransferable,
+    ELA, you are hereby granted a limited, revocable, nontransferable,
     and nonexclusive license, without the right to sublicense, to use the
     Java Code complete and unmodified for the sole purpose of running
     Java applets and applications intended to run on the JavaTM 2
@@ -145,14 +159,15 @@ SOFTWARE.
     Java-enabled general purpose desktop computers and servers.
 
 5)  Software from International Business Machines Corporation or one of its
-    subsidiaries ("IBM") - You acknowledge that some components of the
-    Software may be owned and under license from IBM ("IBM Components"). Use
-    of IBM Components are subject to the IBM International Program License
-    for Non-Warranted Programs (LA_*) and the License Information documents
-    (LI_*) for your region located in the linuxpower/<version>/doc/IBM/
-    directory (collectively, the "IBM Components Agreement"). By agreeing to
-    the terms of this ELA, you also agree to the terms of the IBM Components
-    Agreement.
+    subsidiaries ("IBM")
+
+    You acknowledge that some components of the Software may be owned and
+    under license from IBM ("IBM Components"). Use of IBM Components are
+    subject to the IBM International Program License for Non-Warranted
+    Programs (LA_*) and the License Information documents (LI_*) for your
+    region located in the linuxpower/<version>/doc/IBM/ directory
+    (collectively, the "IBM Components Agreement"). By agreeing to the terms
+    of this ELA, you also agree to the terms of the IBM Components Agreement.
 
 6)  Third Party Software
 
@@ -166,76 +181,75 @@ SOFTWARE.
     Please be sure to consult the individual product files and/or 
     documentation for specific copyright notices and author attributions.
     Use of the Third Party Components by you will be governed by the terms
-    and conditions of such license(s) in addition to this Agreement. To the
-    extent the terms of this license conflict with the terms of such third
-    party licenses with respect to the Third Party Component, the terms of
-    such third party licenses will govern. By agreeing to the terms of this
-    ELA, you also agree to the terms of such licenses.
+    and conditions of such license(s) in addition to this ELA. To the extent
+    the terms of this license conflict with the terms of such third party
+    licenses with respect to the Third Party Component, the terms of such
+    third party licenses will govern. By agreeing to the terms of this ELA,
+    you also agree to the terms of such licenses.
 
 7)  Restrictions
 
 7A) You may make one (1) copy of the Software in machine-readable form,
     solely for archival or backup purposes, provided the copyright notice
     and other proprietary legends on the Software are included on any
-    archival/backup copies. You may not modify, adapt, translate,
-    reverse engineer, de-compile, disassemble, or create derivative
-    works, in whole or in part, based on the Software, nor attempt in any
-    manner to obtain the source code. You may not rent, lease, loan,
-    sublicense, or transfer, electronically or otherwise, the Software to
-    others or authorize any portion of the Software to be copied onto another
-    individual or legal entity's computer except as may be expressly provided
-    herein.  The Software is licensed as a single product.
+    archival/backup copies. You may not modify or create derivative works,
+    in whole or in part, based on the Software, except as expressly authorized
+    in this ELA. You may not reverse engineer, de-compile, or disassemble the
+    Software, or attempt in any manner to obtain the source code. You may not
+    rent, lease, loan, sublicense, or transfer, electronically or otherwise,
+    the Software to others or authorize any portion of the Software to be
+    copied onto another individual or legal entity's computer except as
+    expressly provided in this ELA. The Software is licensed as a single
+    product.
 
 7B) The term "proprietary" as used in this ELA or in the Software does
     not establish a confidential relationship between the Licensor and
-    You and does not in itself provide You any rights to the Software.
+    you and does not in itself provide you any rights to the Software.
     You acknowledge that the Licensors have valuable intellectual
     property rights in the Software and agree to respect and protect such
     intellectual property rights. No right, title, or interest in or to
     any trademark, service mark, logo or trade name of the Licensors is
     granted under this ELA.
 
-7C) You acknowledge and agree that the Software is not designed or
-    intended for use in on-line control equipment in hazardous environments
-    such as nuclear activities, aircraft navigation or control, or life
-    support systems. The Licensors disclaim any express or implied warranty
-    of fitness for such uses.
+7C) You acknowledge and agree that the Software is not designed, manufactured
+    or intended for use in connection with the design, construction,
+    maintenance, and/or operation of any system or application where the use or
+    failure of such system or application could result in a situation that
+    threatens the safety of human life or results in catastrophic damages
+    (including, for example, in on-line control equipment in hazardous
+    environments such as nuclear activities, aircraft navigation or control, or
+    life support systems). The Licensors disclaim any express or implied 
+    warranty of fitness for such uses. NVIDIA SHALL NOT BE LIABLE TO YOU OR ANY
+    THIRD PARTY, IN WHOLE OR IN PART, FOR ANY CLAIMS OR DAMAGES ARISING FROM
+    SUCH USES.
 
-7D) You will not modify, create derivative works of, or distribute any of the
-    Software so that any part of it becomes subject to an Excluded License. As
-    used in this ELA, an "Excluded License" is one that requires, as a 
-    condition of use, modification, and/or distribution, that
+7D) You will not use the Software so that any part of it becomes subject to an
+    Excluded License. As used in this ELA, an "Excluded License" is one that
+    requires, as a condition of use, modification, and/or distribution, that
     (i)     the Software be disclosed or distributed in source code form; or
     (ii)    others have a right to modify it, or 
     (iii)   the Software becomes redistributable at no charge, or
     (iv)    the Software loses its proprietary nature.
-    Therefore, without the prior written permission of the applicable
-    Licensors, You may not modify the Software in any way. In particular,
-    You may not introduce or commingle with the Software any source or object
-    code that is governed by an open source or public license of any kind.
 
-    EXCEPT AS PROVIDED HEREIN, IF YOU OTHERWISE TRANSFER POSSESSION OF ANY
-    COPY, MODIFICATION OR MERGED PORTION OF THE SOFTWARE TO ANOTHER PARTY,
-    YOUR LICENSE IS AUTOMATICALLY TERMINATED.
-    
-7E) Under no circumstances should anything in this Agreement be construed as
-    NVIDIA granting by implication, estoppel or otherwise, (i) a license to
-    any NVIDIA product or technology other than the Software; or (ii) any
+7E) Under no circumstances should anything in this ELA be construed as NVIDIA
+    granting by implication, estoppel or otherwise, (i) a license to any
+    NVIDIA product or technology other than the Software; or (ii) any
     additional license rights for the Software other than the licenses
-    expressly granted in this Agreement.
+    expressly granted in this ELA.
 
 8)  Feedback
 
     You may, but are not obligated to, provide NVIDIA any suggestions,
     comments and feedback regarding the Software delivered to you hereunder
-    ("Feedback").  NVIDIA may use and include any Feedback that You have
-    voluntarily provided to improve the Software and other related NVIDIA
-    technologies.  Accordingly, if You provide Feedback, You grant NVIDIA and
-    its licensees a perpetual, irrevocable, worldwide, royalty-free, fully
-    paid-up license grant to freely use, have used, sell, modify, reproduce,
-    transmit, license, sublicense (through multiple tiers of sublicensees),
-    distribute (through multiple tiers of distributors), and otherwise
-    commercialize the Feedback in the Software and other related technologies.
+    ("Feedback").  NVIDIA and its affiliates may use and include any Feedback
+    that you have voluntarily provided to improve the Software and other
+    NVIDIA products or technologies.  Accordingly, if you provide Feedback,
+    you grant NVIDIA and its affiliates and their licensees a perpetual,
+    irrevocable, worldwide, royalty-free, fully paid-up license grant to freely
+    use, have used, sell, modify, reproduce, transmit, license, sublicense
+    (through multiple tiers of sublicensees), distribute (through multiple
+    tiers of distributors), and otherwise commercialize the Feedback in the
+    Software and other products or technologies.
 
 9)  Limited Warranty; Limitation of Liability 
 
@@ -262,6 +276,9 @@ SOFTWARE.
     NVIDIA has no obligation to support or provide any updates of the
     Software.
 
+    You agree that you are solely responsible for maintaining appropriate data
+    backups and system restore points for Target Systems.
+
 10) Indemnity and Audit
 
     You agree to indemnify, defend, and hold the Licensors harmless from
@@ -271,22 +288,22 @@ SOFTWARE.
     by any and all third parties (collectively "Claims") against the
     Licensors, and their respective employees, directors, officers, and
     agents alleging or resulting from:
-    (i)     Your breach of any term or condition of this ELA;
+    (i)     your breach of any term or condition of this ELA;
     (ii)    alleged or actual infringement of the intellectual property or
-            other proprietary rights of a third party by You or Your
-            sublicensees; unauthorized alteration of the Software or
-            derivative products by You or Your sublicensees;
+            other proprietary rights of a third party by you or your
+            Sublicensees; unauthorized alteration of the Software or
+            derivative products by you or your Sublicensees;
     (iii)   combination of the Software or derivative products with other
             software, products or materials not in accordance with the
             terms of this ELA; or
-    (iv)    any acts or omissions by You, Your employees, directors,
-            officers, and agents or sublicensees either under this ELA or
+    (iv)    any acts or omissions by you, your employees, directors,
+            officers, and agents or Sublicensees either under this ELA or
             outside its scope, including personal injury, death, or
             property damage to anyone or anything.
 
-    NVIDIA reserves the right, upon reasonable prior written notice to You
-    and during Your normal business hours, to audit Your use of the
-    Software and any derivative products made therefrom to confirm Your
+    NVIDIA reserves the right, upon reasonable prior written notice to you
+    and during your normal business hours, to audit your use of the
+    Software and any derivative products made therefrom to confirm your
     compliance with the terms of this ELA.
 
 11) Software Export
@@ -320,97 +337,84 @@ SOFTWARE.
     The Software is commercial computer software provided with RESTRICTED
     RIGHTS. Use, duplication or disclosure of the Software by the U.S.
     Government or a U.S. Government subcontractor is subject to the
-    restrictions set forth in the Agreement under which the Software was
-    obtained pursuant to DFARS 227.7202-1(a) and 227.7202-3(a) (1995), DFARS
-    252.227-7013(c)(1)(ii) (Oct 1988), FAR 12.212(a)(1995), FAR 52.227-19,
-    (June 1987) or FAR 52.227-14(ALT III) (June 1987), as applicable.
-    Contractor/manufacturer is NVIDIA, 2701 San Tomas Expressway, Santa Clara,
-    CA 95050. Use of the Software by the Government constitutes acknowledgment
-    of NVIDIA's proprietary rights therein.
+    restrictions set forth in this ELA pursuant to DFARS 227.7202-1(a) and
+    227.7202-3(a) (1995), DFARS 252.227-7013(c)(1)(ii) (Oct 1988), FAR 
+    12.212(a)(1995), FAR 52.227-19(June 1987), or FAR 52.227-14(ALT III)
+    (June 1987), as applicable. Contractor/manufacturer is NVIDIA, 2788 San
+    Tomas Expressway, Santa Clara, CA 95051. Use of the Software by the
+    Government constitutes acknowledgment of NVIDIA's proprietary rights
+    therein.
 
 14) Termination 
 
-    The license granted to You in this ELA is effective until terminated.
-    This ELA will automatically terminate if Customer fails to comply with any
-    of the terms and conditions hereof. You may terminate the license at any
-    time by returning and/or destroying the Software together with all copies.
+    The license granted to you in this ELA is effective until terminated.
+
+14A) This ELA will automatically terminate if you fail to comply with any of
+    the terms and conditions hereof. You may terminate the license at any time
+    by returning and/or destroying the Software together with all copies.
     Upon termination of the license for any reason, you agree to destroy all
     copies of the Software.
 
-    Defensive Suspension. If Customer commences or participates in any legal
-    Proceeding against NVIDIA, then NVIDIA may, in its sole discretion, suspend
-    or terminate all license grants and any other rights provided under this
-    ELA during the pendency of such legal proceedings.
+14B) Defensive Suspension
+
+    If you commence or participate in any legal proceeding against NVIDIA with
+    respect to the Software, then NVIDIA may, in its sole discretion, suspend
+    or terminate license grants or any other rights provided under this ELA
+    during the pendency of such legal proceedings.
 
 15) Surviving Terms
 
-    In the event this ELA is terminated for any reason, the following
-    provisions shall survive termination and shall remain in full force
-    and effect: 1, 6, 7, 8, 9, 10, 11, 13, 14 and 18.
+    In the event this ELA is terminated for any reason, all provisions shall
+    survive termination except for the license grants to you.
 
 16) No Assignment
 
-    This Agreement, and each party's rights and obligations herein, may
-    not be assigned, subcontracted, delegated, or otherwise transferred
-    by You without NVIDIA's prior written consent, and any attempted 
-    assignment, subcontract, delegation, or transfer in violation of the
-    foregoing will be null and void.  The terms of this Agreement shall
-    be binding upon assignees. 
+    This ELA, and each party's rights and obligations herein, may not be
+    assigned, subcontracted, delegated, or otherwise transferred by you without
+    NVIDIA's prior written consent, and any attempted assignment, subcontract,
+    delegation, or transfer in violation of the foregoing will be null and
+    void. The terms of this ELA shall be binding upon assignees.
 
 17) Controlling Law and Complete Agreement
 
-    This Agreement shall be construed and interpreted under the laws of
-    the state of Delaware, not including its conflict of laws principles.
-    The United Nations Convention on Contracts for the International Sale
-    of Goods is specifically disclaimed. You and NVIDIA agree that all
-    disputes arising out of this Agreement shall be subject to the exclusive
-    jurisdiction of and venue in the federal and state courts within Santa
-    Clara County, California, and both parties hereby consent to the 
-    personal and exclusive jurisdiction and venue of these courts. If any
-    provision of this ELA, or portion thereof, is found to be unenforceable,
-    that provision shall be enforced to the maximum extent possible and the
-    remainder of this ELA shall continue in full force and effect.
+    This ELA shall be construed and interpreted under the laws of the state of
+    Delaware, not including its conflict of laws principles. The United Nations
+    Convention on Contracts for the International Sale of Goods is specifically
+    disclaimed. You and NVIDIA agree that all disputes arising out of this ELA
+    shall be subject to the exclusive jurisdiction of and venue in the federal
+    and state courts within Santa Clara County, California, and both parties
+    hereby consent to the personal and exclusive jurisdiction and venue of
+    these courts. If any provision of this ELA, or portion thereof, is found to
+    be unenforceable, that provision shall be enforced to the maximum extent
+    possible and the remainder of this ELA shall continue in full force and
+    effect.
 
 18) Privacy Notice & Consent to Collection and Use of Information
 
-    You hereby acknowledge that the Software accesses and collects non-
-    personally identifiable information about You and Target Systems as well
-    as configures Target Systems in order to (a) properly optimize such system
-    for use with the Software, (b) deliver content through the Software, and
-    (c) improve NVIDIA products and services. Information collected by the
-    Software includes, but is not limited to, Target System's (a) hardware
-    configuration and ID, (b) operating system and driver configuration,
-    (c) installed applications, (d) applications settings, performance, and 
-    usage data, and (e) usage metrics of the Software. In addition, You hereby
-    acknowledge that the Software may access and collect personally
-    identifiable information about You, such as your PGI user credentials, in
-    order to (a) properly optimize such system for use with the Software,
-    (b) deliver content through the Software, and (c) improve the Software
-    and/or NVIDIA products and services. To the extent that You use the
-    Software, You hereby consent to all of the foregoing, and represent and 
-    warrant that You have the right to grant such consent. In addition, You 
-    agree that You are solely responsible for maintaining appropriate data
-    backups and system restore points for Target System, and that NVIDIA will
-    have no responsibility for any damage or loss to Target System (including
-    loss of data or access) arising from or relating to (a) any changes to the
-    configuration, application settings, environment variables, registry,
-    drivers, BIOS, or other attributes of Target System (or any part of Target
-    System) initiated through the Software; or (b) installation of any Software
-    or third party software patches initiated through the Software. The
-    Software may contain links to websites and services. We encourage you to 
-    review the privacy statements on those sites and services that you choose
-    to visit so that you can understand how they may collect, use and share
-    your personal information. NVIDIA is not responsible for the privacy
-    statements or practices of sites and services controlled by other
-    companies or organizations.
+    You hereby acknowledge that the Software may access and collect data in
+    order to: (a) properly configure and optimize Target Systems; (b) deliver
+    content or service through the Software; and (c) improve NVIDIA products
+    and services.  Information collected by the Software may include: (i)
+    configuration data and ID; (ii) operating system and driver configuration;
+    (iii) installed applications; (iv) applications settings, performance and
+    usage data; and (v) usage metrics of the Software.
 
-    You represent and warrant that the non-personally identifiable information
-    that You have furnished in connection with your registration for the
-    Software is complete and accurate. You also acknowledge that from time to
-    time, NVIDIA may collect, use, and disclose such information about You
-    and/or Your system in connection with the Software in accordance with
-    NVIDIA's privacy policy, available at URL
-    http://www.nvidia.com/object/privacy_policy.html.
+    NVIDIA may require certain personal information such as your name, email
+    address and PGI user credentials in order to deliver or provide products
+    or services to you.
+
+    The Software may contain links to websites and services. NVIDIA encourages
+    you to review the privacy statements on those sites and services that you
+    choose to visit so that you can understand how they may collect, use and
+    share your data.  NVIDIA is not responsible for the privacy statements or
+    practices of sites and services controlled by other companies or
+    organizations.
+
+    You should review the NVIDIA Privacy Policy, located at
+    https://www.nvidia.com/en-us/about-nvidia/privacy-policy/, which explains
+    NVIDIA's policy for collecting and using data, as well as visit the NVIDIA
+    Privacy Center, located at https://www.nvidia.com/en-us/privacy-center/,
+    to manage your consent and privacy preferences.
 
 YOU ACKNOWLEDGE THAT YOU HAVE READ THIS ELA AND AGREE TO BE BOUND BY ITS TERMS.
 YOU FURTHER AGREE THAT IT IS THE COMPLETE AND EXCLUSIVE STATEMENT OF AGREEMENT
@@ -418,4 +422,4 @@ BETWEEN YOU AND NVIDIA AND THAT IT SUPERSEDES ANY PRIOR AGREEMENT, ORAL OR
 WRITTEN, ANY PROPOSAL, AND ANY OTHER COMMUNICATIONS BETWEEN YOU AND NVIDIA
 RELATING TO THE SUBJECT MATTER OF THIS ELA.
 
-Rev 2016-Oct
+Rev 2018-Oct
