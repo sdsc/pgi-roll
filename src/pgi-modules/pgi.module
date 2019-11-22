@@ -29,7 +29,7 @@ if {$unloadApps && [info exists env(LOADEDMODULES)]} {
       continue
     }
     # Check whether this module references a compiler-specific subdir
-    set moduleEffects [exec bash -c "module display $app" 2>@1]
+    set moduleEffects [exec sh -c "module display $app" 2>@1]
     if {[string first "/pgi" $moduleEffects] >= 0} {
       puts stderr "Unloading compiler-dependent module $app"
       module unload [lindex [split $app "/"] 0]
